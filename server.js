@@ -32,8 +32,10 @@ app.get('/', (req,res) => {
 })
 
 const usersController = require('./routes/usersController')
+const artworksController = require('./routes/artworksController')
 
 app.use('/api/users', usersController)
+app.use('/api/users/:userId/artworks', artworksController)
 
 
 module.exports = app;
