@@ -27,17 +27,17 @@ export default class CreateUserView extends Component {
       <div>
         <form>
           <div> Create username:
-            <input type='text' name='userName' onChange={this.handleChange}/>
+            <input type='text' name='userName' onChange={this.handleChange} />
           </div>
-          <div> First Name: 
-            <input type='text' name='firstName' onChange={this.handleChange}/>
+          <div> First Name:
+            <input type='text' name='firstName' onChange={this.handleChange} />
           </div>
-          <div> Last Name: 
-            <input type='text' name='lastName' onChange={this.handleChange}/>
+          <div> Last Name:
+            <input type='text' name='lastName' onChange={this.handleChange} />
           </div>
           <div>
             <input type='submit'
-              value='Create New User !'
+              value='Create New User'
               onClick={this.addUser} />
           </div>
         </form>

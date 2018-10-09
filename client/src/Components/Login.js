@@ -23,25 +23,20 @@ export default class Login extends Component {
     })
   }
 
-  addUserToUsers = (user) => {
-    const users = [...this.state.users]
-    users.push(user)
-    this.setState({ users })
-    this.handleSubmit()
-  }
-
-  handleSubmit = async (event) => {
-    const response = await axios.post('/api/users', this.state.newUser)
+  addUserToUsers = async (newUser) => {
+    const response = await axios.post('/api/users', newUser)
+    
     const users = [...this.state.users]
     users.push(response.data)
-    this.setState({ users })
-    this.setState({ redirect: true })
+    this.setState({ users, redirect: true, loginView: !this.state.loginView })
   }
+
 
   render() {
     if (this.state.redirect) {
-      return (<Redirect to={`/users/{users._id}`}/>)
+      return ( <Redirect to={`/users/{user._id}`} /> )
     }
+
     return (
       <div>
         <h1>Log In</h1>
