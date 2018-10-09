@@ -21,32 +21,45 @@ export default class Login extends Component {
     })
   }
 
+  addUserToUsers = (user) => {
+    const users = [...this.state.users]
+    users.push(user)
+    this.setState({ users })
+    this.handleSubmit()
+  }
+
+  handleSubmit = async (event) => {
+    const response = await axios.post('/api/users', this.state.newUser)
+    const users = [...this.state.users]
+    users.push(response.data)
+    this.setState({ users })
+  }
+
   render() {
     return (
       <div>
         <h1>Log In</h1>
 
-      {/* Toggle loginView controller */}
-      <div>
-        <button onClick={this.toggleLoginView}>
-          {this.state.loginView 
-            ? "Create a New User"
-            : null
-          }
-        </button>
-      </div>
+        {/* Toggle loginView controller */}
+        <div>
+
+        </div>
 
         <div>
           {this.state.loginView ? (
-
-          <LoginListView 
-            users={this.state.users}
-          />
-            ):(
-            <CreateUserView 
-            
-          />
-            ) }
+            <div>
+              <button onClick={this.toggleLoginView}>Create New User</button>
+              <LoginListView
+                users={this.state.users} />
+            </div>
+          ) : (
+              <div>
+                <CreateUserView
+                  addUserToUsers={this.addUserToUsers}
+                  handleSubmit={this.handleSubmit}
+                />
+              </div>
+            )}
         </div>
       </div>
     )
