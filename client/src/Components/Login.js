@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import LoginListView from './LoginListView';
 import CreateUserView from './CreateUserView';
@@ -16,11 +15,27 @@ export default class Login extends Component {
     this.setState({ users: response.data })
   }
 
-  render() {
+  toggleLoginView = () => {
+    this.setState({
+      loginView: !this.state.loginView
+    })
+  }
 
+  render() {
     return (
       <div>
         <h1>Log In</h1>
+
+      {/* Toggle loginView controller */}
+      <div>
+        <div onClick={this.toggleLoginView}>
+          {this.state.loginView 
+            ? "Create a New User"
+            : null
+          }
+        </div>
+      </div>
+
         <div>
           {this.state.loginView ? (
 
@@ -28,7 +43,9 @@ export default class Login extends Component {
             users={this.state.users}
           />
             ):(
-            <CreateUserView />
+            <CreateUserView 
+            
+          />
             ) }
         </div>
       </div>
