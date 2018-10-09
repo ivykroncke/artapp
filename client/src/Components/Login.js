@@ -3,21 +3,22 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default class Login extends Component {
+  
   state = {
-    users: ['Fritz', 'Ivy', 'Charlotte'],
+    users: []
   }
 
   componentDidMount = async () => {
-    const usersFromDB = await axios.get('/api/users/')
-    this.setState({ users: usersFromDB.data })
+    const response = await axios.get('/api/users/')
+    this.setState({ users: response.data })
   }
 
   render() {
-    const allUsers = this.state.users.map((users, index) => {
+    const allUsers = this.state.users.map((user, index) => {
       return (
         <div key={index}>
-          <Link to={`/users/${users._id}`}>
-            username: {users.userName}
+          <Link to={`/users/${user._id}`}>
+            username: {user.userName}
            </Link>
         </div>
       )
