@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class CreateUserView extends Component {
   state = {
-    
+
     newUser: {
       userName: '',
       firstName: '',
@@ -12,10 +12,8 @@ export default class CreateUserView extends Component {
   }
 
   handleChange = (event) => {
-    const eventValue = event.target.value
-    const eventName = event.target.name
     const newUser = { ...this.state.newUser }
-    newUser[eventName] = eventValue
+    newUser[event.target.name] = event.target.value
     this.setState({ newUser })
   }
 

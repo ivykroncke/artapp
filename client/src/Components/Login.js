@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import LoginListView from './LoginListView';
 import CreateUserView from './CreateUserView';
@@ -7,7 +8,8 @@ export default class Login extends Component {
 
   state = {
     users: [],
-    loginView: true
+    loginView: true,
+    redirect: false
   }
 
   componentDidMount = async () => {
@@ -33,18 +35,18 @@ export default class Login extends Component {
     const users = [...this.state.users]
     users.push(response.data)
     this.setState({ users })
+    this.setState({ redirect: true })
   }
 
   render() {
+    if (this.state.redirect) {
+      return (<Redirect to={`/users/{users._id}`}/>)
+    }
     return (
       <div>
         <h1>Log In</h1>
 
         {/* Toggle loginView controller */}
-        <div>
-
-        </div>
-
         <div>
           {this.state.loginView ? (
             <div>
