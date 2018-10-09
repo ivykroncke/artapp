@@ -28,12 +28,12 @@ export default class Login extends Component {
 
       {/* Toggle loginView controller */}
       <div>
-        <div onClick={this.toggleLoginView}>
+        <button onClick={this.toggleLoginView}>
           {this.state.loginView 
             ? "Create a New User"
             : null
           }
-        </div>
+        </button>
       </div>
 
         <div>
