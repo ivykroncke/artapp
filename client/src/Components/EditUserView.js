@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default class EditUserView extends Component {
 
+    updateUser = (event) => {
+        event.preventDefault()
+        const userId = this.props.userId
+    }
 
     render() {
         return (
@@ -18,6 +22,11 @@ export default class EditUserView extends Component {
                     <div>
                         <input name='lastName' type='text' placeholder={this.props.lastName} />
                     </div>
+                    <input
+                        type='submit'
+                        value='Submit Changes'
+                        onClick={this.updateUser}
+                    />
                 </form>
             </div>
         )

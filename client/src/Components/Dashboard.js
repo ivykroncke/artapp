@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
     const response = await axios.get(`/api/users/${userId}`)
     this.setState({
       username: response.data.userName,
-      userId: response.data.userId,
+      userId: response.data._id,
       firstName: response.data.firstName,
       lastName: response.data.lastName
     })
