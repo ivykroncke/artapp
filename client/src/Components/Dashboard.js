@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default class Dashboard extends Component {
@@ -15,7 +16,7 @@ export default class Dashboard extends Component {
     })
   }
 
-  componentDidMount = () =>{
+  componentDidMount = () => {
     this.getUsername()
   }
 
@@ -24,7 +25,8 @@ export default class Dashboard extends Component {
     return (
       <div>
         <h1>Dashboard</h1>
-          {this.state.username}
+        <div> Username: {this.state.username}</div>
+          <Link to={`/users/{userId}/edit`}>Edit this user</Link>
       </div>
     )
   }

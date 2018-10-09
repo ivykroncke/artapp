@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
+import EditUserView from './Components/EditUserView';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/users' component={Login} />
           <Route exact path='/users/:userId' component={Dashboard} />
+          <Route exact path='/users/:userId/edit' component={EditUserView} />
         </Switch>
       </Router>
     )
