@@ -8,7 +8,7 @@ export default class LoginListView extends Component {
     const allUsers = this.props.users.map((user, index) => {
       return (
         <div key={index}>
-          <Link to={`/users/${user._id}`}>
+          <Link to={`/users/${user._id}`} >
             username: {user.userName}
           </Link>
         </div>
