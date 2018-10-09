@@ -10,7 +10,6 @@ export default class Dashboard extends Component {
   getUsername = async () => {
     const userId = this.props.match.params.userId
     const response = await axios.get(`/api/users/${userId}`)
-    console.log(response.data.userName)
     this.setState({
       username: response.data.userName
     })
