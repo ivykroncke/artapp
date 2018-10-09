@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import LoginListView from './LoginListView';
+import CreateUserView from './CreateUserView';
 
 export default class Login extends Component {
-  
+
   state = {
-    users: []
+    users: [],
+    loginView: true
   }
 
   componentDidMount = async () => {
@@ -14,20 +17,20 @@ export default class Login extends Component {
   }
 
   render() {
-    const allUsers = this.state.users.map((user, index) => {
-      return (
-        <div key={index}>
-          <Link to={`/users/${user._id}`}>
-            username: {user.userName}
-           </Link>
-        </div>
-      )
-    })
 
     return (
       <div>
         <h1>Log In</h1>
-        {allUsers}
+        <div>
+          {this.state.loginView ? (
+
+          <LoginListView 
+            users={this.state.users}
+          />
+            ):(
+            <CreateUserView />
+            ) }
+        </div>
       </div>
     )
   }
