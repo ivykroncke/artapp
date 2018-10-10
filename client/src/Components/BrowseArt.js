@@ -47,12 +47,16 @@ export default class BrowseArt extends Component {
         this.setState({ artworks })
 
         const userId = this.props.userId
-        console.log(userId)
         await axios.post(`/api/users/${userId}/artworks`, artworks[0])
     }
 
-    saveUnLike = () => {
-        console.log('Unlike!')
+    saveUnLike = async () => {
+        const artworks = [...this.state.artworks]
+        artworks[0].unliked = true
+        this.setState({ artworks })
+
+        const userId = this.props.userId
+        await axios.post(`/api/users/${userId}/artworks`, artworks[0])
     }
 
     render() {
