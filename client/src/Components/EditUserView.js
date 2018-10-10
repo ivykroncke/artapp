@@ -8,7 +8,7 @@ export default class EditUserView extends Component {
         user: {}
     }
 
-    getUser = async (event) => {
+    getUser = async () => {
         const userId = this.props.match.params.userId
         const response = await axios.get(`/api/users/${userId}`)
         this.setState({
@@ -25,16 +25,16 @@ export default class EditUserView extends Component {
 
         return (
             <div>
+                <h1>Edit User</h1>
                 <form>
-                    Edit User
-                    <div>
-                        <input name='userName' type='text' placeholder={this.state.userName} />
+                    <div> Edit Username:
+                        <input name='userName' type='text' placeholder={this.state.user.userName} />
                     </div>
-                    <div>
-                        <input name='firstName' type='text' placeholder={this.state.firstName} />
+                    <div>  Edit First Name:
+                        <input name='firstName' type='text' placeholder={this.state.user.firstName} />
                     </div>
-                    <div>
-                        <input name='lastName' type='text' placeholder={this.state.lastName} />
+                    <div> Edit Last Name:
+                        <input name='lastName' type='text' placeholder={this.state.user.lastName} />
                     </div>
                     <input
                         type='submit'
