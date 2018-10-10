@@ -36,23 +36,19 @@ export default class BrowseArt extends Component {
         ]
     }
 
-    handleChange = (event, i) => {
+    handleChange = () => {
         const artworks = [...this.state.artworks[0]]
         console.log(artworks)
     }
 
-    saveLike = () => {
-        //update state
-        //get it
+    saveLike = async () => {
         const artworks = [...this.state.artworks]
-        //set it
         artworks[0].liked = true
-        //put it back
         this.setState({ artworks })
 
-        //send changes to MongoDB in Art section
-        // const userId = this.props.userId
-        // await axios.post(`api/users/${userId}/artworks`)
+        const userId = this.props.userId
+        console.log(userId)
+        await axios.post(`/api/users/${userId}/artworks`, artworks[0])
     }
 
     saveUnLike = () => {

@@ -20,7 +20,6 @@ router.post('/', (req, res) => {
   User.findById(req.params.userId)
   .then(user => {
     const newArtwork = new Artwork(req.body)
-    console.log(newArtwork)
     user.artworks.push(newArtwork)
     return user.save()
   })

@@ -5,7 +5,9 @@ const ArtworkSchema = new Schema({
     artist: String,
     style: String,
     year: Number,
-    img: String
+    img: String,
+    liked: Boolean,
+    unliked: Boolean
 })
 
 const UserSchema = new Schema ({
