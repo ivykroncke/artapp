@@ -9,7 +9,7 @@ export default class Login extends Component {
   state = {
     users: [],
     loginView: true,
-    redirect: false
+    redirect: false,
   }
 
   componentDidMount = async () => {
@@ -28,20 +28,33 @@ export default class Login extends Component {
     
     const users = [...this.state.users]
     users.push(response.data)
-    this.setState({ users, redirect: true, loginView: !this.state.loginView })
+
+    this.setState({ users, redirect: true})
   }
+
+  // findNewId = () => {
+  //   const usersArray = this.state.users
+  //   const filterUsers = usersArray.filter((user, i) => {
+  //     if(i === usersArray.length -1 ) {
+  //       return user._id
+  //     }
+  //   })
+  // }
 
 
   render() {
+
+    //this needs revisiting. Need to figure out
+    //how to grab the id after passed through mongo and put in redirect
+    //or other method.
     if (this.state.redirect) {
-      return ( <Redirect to={`/users/{user._id}`} /> )
+      return ( <Redirect to={`/`} /> )
     }
 
     return (
       <div>
         <h1>Log In</h1>
 
-        {/* Toggle loginView controller */}
         <div>
           {this.state.loginView ? (
             <div>

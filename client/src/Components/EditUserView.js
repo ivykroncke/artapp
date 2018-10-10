@@ -7,7 +7,7 @@ export default class EditUserView extends Component {
 
     state = {
         user: {},
-        redirect: false
+        redirectToId: false
     }
 
     getUser = async () => {
@@ -33,13 +33,22 @@ export default class EditUserView extends Component {
         const userId = this.props.match.params.userId
         const editedUser = this.state.user
         await axios.put(`/api/users/${userId}`, editedUser)
-        this.setState({ redirect: true })
+        this.setState({ redirectToId: true })
+    }
+
+    handleDelete = async (userId) => {
+        await axios.delete(`/api/users/${userId}`)
+        await this.getUser()
+        this.setState({ redirectToUsers: true})
     }
 
     render() {
         const userId = this.props.match.params.userId
-        if(this.state.redirect) {
+        if(this.state.redirectToId) {
             return ( <Redirect to={`/users/${userId}`} /> )
+        }
+        if(this.state.redirectToUsers) {
+            return ( <Redirect to={`/users/`} />)
         }
 
         return (
@@ -70,6 +79,10 @@ export default class EditUserView extends Component {
                         onClick={this.submitChanges}
                     />
                 </form>
+
+                <div onClick={() => this.handleDelete(userId)}>
+                    Delete this User
+                </div>
             </div>
         )
     }
