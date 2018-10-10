@@ -14,11 +14,24 @@ export default class EditUserView extends Component {
         this.setState({
             user: response.data
         })
-
     }
 
     componentDidMount = () => {
         this.getUser()
+    }
+
+    handleChange = (event) => {
+        const user = {...this.state.user}
+        user[event.target.name] = event.target.value
+        this.setState({ user })
+    }
+
+    submitChanges = async (event) => {
+        event.preventDefault()
+        const userId = this.props.match.params.userId
+        console.log(userId)
+        const editedUser = this.state.user
+        await axios.put(`/api/users/${userId}`, editedUser)
     }
 
     render() {
@@ -28,18 +41,27 @@ export default class EditUserView extends Component {
                 <h1>Edit User</h1>
                 <form>
                     <div> Edit Username:
-                        <input name='userName' type='text' placeholder={this.state.user.userName} />
+                        <input name='userName' 
+                        type='text' 
+                        placeholder={this.state.user.userName} 
+                        onChange={this.handleChange}/>
                     </div>
                     <div>  Edit First Name:
-                        <input name='firstName' type='text' placeholder={this.state.user.firstName} />
+                        <input name='firstName' 
+                        type='text' 
+                        placeholder={this.state.user.firstName} 
+                        onChange={this.handleChange}/>
                     </div>
                     <div> Edit Last Name:
-                        <input name='lastName' type='text' placeholder={this.state.user.lastName} />
+                        <input name='lastName' 
+                        type='text' 
+                        placeholder={this.state.user.lastName} 
+                        onChange={this.handleChange}/>
                     </div>
                     <input
                         type='submit'
                         value='Submit Changes'
-                        onClick={this.getUser}
+                        onClick={this.submitChanges}
                     />
                 </form>
             </div>
