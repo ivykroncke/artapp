@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import EditUserView from './EditUserView';
+import { Link } from 'react-router-dom'
 
 export default class Dashboard extends Component {
 
   state = {
-    username: '',
-    userId: ''
+    username: ''
   }
 
   getUsername = async () => {
@@ -25,16 +24,13 @@ export default class Dashboard extends Component {
   }
 
   render() {
+    const userId = this.props.match.params.userId
 
     return (
       <div>
         <h1>Dashboard</h1>
         <div> Username: {this.state.username}</div>
-          <EditUserView 
-            username={this.state.username}
-            userId={this.state.userId}
-            firstName={this.state.firstName}
-            lastName={this.state.lastName}/>
+          <Link to={`/users/${userId}/edit`}>Edit User</Link>
       </div>
     )
   }
