@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import BrowseArt from './BrowseArt';
 
 export default class Dashboard extends Component {
 
@@ -25,25 +26,29 @@ export default class Dashboard extends Component {
     await console.log(this.state)
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
     this.getUsername()
   }
 
 
 
   render() {
+    //test again to see if I can use state instead of Link to params...
     const userId = this.props.match.params.userId
+
+
+
     return (
       <div>
         <h1>Dashboard</h1>
         <div> Username: {this.state.username}</div>
-          <Link to={`/users/${userId}/edit`}>Edit User</Link>
-        <div>
-        <img src='http://www.fillmurray.com/200/200' alt='fillmurray' />
-        </div>
-        <div> Like </div><div> Skip </div>
-        <div>Info about this artist</div>
-
+        <Link to={`/users/${userId}/edit`}>Edit User</Link>
+        <BrowseArt 
+        username={this.state.username}
+        userId={this.state.userId}
+        firstName={this.state.firstName}
+        lastName={this.state.lastName}
+        artworks={this.state.artworks}/>
       </div>
     )
   }
