@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import BrowseArt from './BrowseArt';
+import Gallery from './Gallery';
 
 export default class Dashboard extends Component {
 
@@ -46,6 +47,13 @@ export default class Dashboard extends Component {
         firstName={this.state.firstName}
         lastName={this.state.lastName}
         artworks={this.state.artworks}/>
+        <Gallery 
+          username={this.state.username}
+          userId={this.state.userId}
+          firstName={this.state.firstName}
+          lastName={this.state.lastName}
+          artworks={this.state.artworks}
+        />
       </div>
     )
   }
