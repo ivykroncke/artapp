@@ -19,6 +19,7 @@ const thedavid = new Artwork({
     artist: 'Michaelangelo',
     style: 'Italian Renaissance/Realism',
     year: 1504,
+    img: 'https://www.visittuscany.com/shared/visittuscany/immagini/blogs/idea/david-michelangelo-accademia.jpg?__scale=w:1333,h:1000,t:2,q:85',
     liked: true,
     unliked: false
 })
@@ -28,6 +29,7 @@ const soupcans = new Artwork({
     artist: 'Michaelangelo',
     style: 'Late Rennaissance',
     year: 1504,
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/687px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg',
     liked: true,
     unliked: false
 })
