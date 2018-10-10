@@ -23,7 +23,6 @@ export default class Dashboard extends Component {
       lastName: response.data.lastName,
       artworks: response.data.artworks
     })
-    await console.log(this.state)
   }
 
   componentDidMount = () => {

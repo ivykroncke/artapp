@@ -4,7 +4,8 @@ const ArtworkSchema = new Schema({
     title: String,
     artist: String,
     style: String,
-    year: Number
+    year: Number,
+    img: String
 })
 
 const UserSchema = new Schema ({
