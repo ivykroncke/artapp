@@ -29,8 +29,6 @@ export default class Dashboard extends Component {
     this.getUsername()
   }
 
-
-
   render() {
     //test again to see if I can use state instead of Link to params...
     const userId = this.props.match.params.userId
