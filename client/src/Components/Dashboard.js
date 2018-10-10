@@ -34,8 +34,6 @@ export default class Dashboard extends Component {
     //test again to see if I can use state instead of Link to params...
     const userId = this.props.match.params.userId
 
-
-
     return (
       <div>
         <h1>Dashboard</h1>
