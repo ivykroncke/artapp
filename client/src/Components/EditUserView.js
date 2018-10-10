@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios';
 // import axios from 'axios'
 
 export default class EditUserView extends Component {
 
     state = {
-        user: {}
+        user: {},
+        redirect: false
     }
 
     getUser = async () => {
@@ -29,12 +31,16 @@ export default class EditUserView extends Component {
     submitChanges = async (event) => {
         event.preventDefault()
         const userId = this.props.match.params.userId
-        console.log(userId)
         const editedUser = this.state.user
         await axios.put(`/api/users/${userId}`, editedUser)
+        this.setState({ redirect: true })
     }
 
     render() {
+        const userId = this.props.match.params.userId
+        if(this.state.redirect) {
+            return ( <Redirect to={`/users/${userId}`} /> )
+        }
 
         return (
             <div>

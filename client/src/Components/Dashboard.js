@@ -25,7 +25,6 @@ export default class Dashboard extends Component {
 
   render() {
     const userId = this.props.match.params.userId
-
     return (
       <div>
         <h1>Dashboard</h1>
