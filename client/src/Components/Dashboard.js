@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import BrowseArt from './BrowseArt';
 import Gallery from './Gallery';
 
-export default class Dashboard extends Component {
+import { Container } from './SharedComponents';
 
+export default class Dashboard extends Component {
   state = {
     username: '',
     userId: '',
@@ -35,7 +36,7 @@ export default class Dashboard extends Component {
     const userId = this.props.match.params.userId
 
     return (
-      <div>
+      <Container>
         <h1>Dashboard</h1>
         <div> Username: {this.state.username}</div>
         <Link to={`/users/${userId}/edit`}>Edit User</Link>
@@ -52,7 +53,7 @@ export default class Dashboard extends Component {
           lastName={this.state.lastName}
           artworks={this.state.artworks}
         />
-      </div>
+      </Container>
     )
   }
 }

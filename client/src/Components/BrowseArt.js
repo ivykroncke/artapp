@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+import styled from 'styled-components'
+
+const StyledImage = styled.img`
+  width: 200px;
+`
+
 export default class BrowseArt extends Component {
 
     state = {
@@ -65,7 +71,7 @@ export default class BrowseArt extends Component {
             <div>
                 <h3>{this.state.artworks[0].artist}</h3>
                 <div>{this.state.artworks[0].year}</div>
-                <img src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
+                <StyledImage src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
                 <div>Style: {this.state.artworks[0].style}</div>
 
                 <div onClick={this.saveLike}>

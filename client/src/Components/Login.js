@@ -4,6 +4,8 @@ import axios from 'axios'
 import LoginListView from './LoginListView';
 import CreateUserView from './CreateUserView';
 
+import { Container } from './SharedComponents';
+
 export default class Login extends Component {
 
   state = {
@@ -52,16 +54,17 @@ export default class Login extends Component {
     }
 
     return (
-      <div>
+      <Container>
         <h1>Log In</h1>
 
         <div>
           {this.state.loginView ? (
             <div>
-              <button onClick={this.toggleLoginView}>Create New User</button>
               <LoginListView
                 users={this.state.users} />
-            </div>
+              <button onClick={this.toggleLoginView}>
+                Create New User</button>
+          </div>
           ) : (
               <div>
                 <CreateUserView
@@ -71,7 +74,7 @@ export default class Login extends Component {
               </div>
             )}
         </div>
-      </div>
+      </Container>
     )
   }
 }
