@@ -13,7 +13,8 @@ export default class Dashboard extends Component {
     userId: '',
     firstname: '',
     lastname: '',
-    artworks: [{}]
+    artworks: [{}],
+    browseOrGallery: true
   }
 
   getUsername = async () => {
@@ -32,28 +33,48 @@ export default class Dashboard extends Component {
     this.getUsername()
   }
 
+  toggleBrowseOrGallery = () => {
+    this.setState({
+      browseOrGallery: !this.state.browseOrGallery
+    })
+  }
+
   render() {
-    //test again to see if I can use state instead of Link to params...
     const userId = this.props.match.params.userId
 
     return (
       <Container>
-        <Nav 
+        <Nav
           username={this.state.username}
           userId={this.state.userId} />
-        <BrowseArt 
-        username={this.state.username}
-        userId={this.state.userId}
-        firstName={this.state.firstName}
-        lastName={this.state.lastName}
-        artworks={this.state.artworks}/>
-        <Gallery 
-          username={this.state.username}
-          userId={this.state.userId}
-          firstName={this.state.firstName}
-          lastName={this.state.lastName}
-          artworks={this.state.artworks}
-        />
+
+        <div>
+          {this.state.browseOrGallery ? (
+            <div>
+              <BrowseArt
+                username={this.state.username}
+                userId={this.state.userId}
+                firstName={this.state.firstName}
+                lastName={this.state.lastName}
+                artworks={this.state.artworks} />
+              <button onClick={this.toggleBrowseOrGallery}>
+                View Your Artwork
+              </button>
+            </div>
+          ) : (
+              <div>
+                <Gallery
+                  username={this.state.username}
+                  userId={this.state.userId}
+                  firstName={this.state.firstName}
+                  lastName={this.state.lastName}
+                  artworks={this.state.artworks}
+                />
+                <button onClick={this.toggleBrowseOrGallery}>
+                  Back To Browse </button>
+              </div>
+            )}
+        </div>
       </Container>
     )
   }
