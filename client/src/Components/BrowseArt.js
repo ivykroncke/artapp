@@ -32,14 +32,29 @@ export default class BrowseArt extends Component {
         ]
     }
 
+    saveLike = () => {
+        console.log('Like!')
+    }
+
+    saveUnLike = () => {
+        console.log('Unlike!')
+    }
+
     render() {
 
         return (
             <div>
                 <h3>{this.state.artchoices[0].artist}</h3>
                 <div>{this.state.artchoices[0].year}</div>
-                <img src={this.state.artchoices[0].img} />
+                <img src={this.state.artchoices[0].img} alt={this.state.artchoices[0].title} />
                 <div>Style: {this.state.artchoices[0].style}</div>
+
+                <div onClick={this.saveLike}>
+                    Like
+                </div>
+                <div onClick={this.saveUnLike}>
+                    Skip
+                </div>
             </div>
         )
 
