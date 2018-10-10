@@ -4,8 +4,41 @@ import axios from 'axios';
 import styled from 'styled-components'
 
 const StyledImage = styled.img`
-  width: 200px;
+  width: 80%;
 `
+
+const TopInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    padding: 20px 20px 10px 20px;
+`
+
+const Artist = styled.div`
+    text-align: left;
+    font-size: 24px;
+    padding-bottom: 5px;
+`
+
+const ArtistAndTitleAndYear = styled.div`
+    margin-left: 10%;
+`
+
+const TitleAndYear = styled.div`
+    text-align: left;
+    font-size: 12px;
+`
+
+const LikeButtons = styled.div`
+    align-items: right;
+`
+
+const LikeOrSkip = styled.div`
+    :hover {
+        color: lightgray;
+    }
+`
+
 
 export default class BrowseArt extends Component {
 
@@ -69,17 +102,19 @@ export default class BrowseArt extends Component {
 
         return (
             <div>
-                <h3>{this.state.artworks[0].artist}</h3>
-                <div>{this.state.artworks[0].year}</div>
+                <TopInfo>
+                    <ArtistAndTitleAndYear>
+                        <Artist>{this.state.artworks[0].artist}</Artist>
+                        <TitleAndYear>{this.state.artworks[0].title}, {this.state.artworks[0].year}</TitleAndYear>
+                    </ArtistAndTitleAndYear>
+                    <LikeButtons >
+                        <LikeOrSkip onClick={this.saveLike}>Like</LikeOrSkip>
+                        <LikeOrSkip onClick={this.saveUnLike}>Skip</LikeOrSkip>
+                    </ LikeButtons>
+                </TopInfo>
                 <StyledImage src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
-                <div>Style: {this.state.artworks[0].style}</div>
-
-                <div onClick={this.saveLike}>
-                    Like
-                </div>
-                <div onClick={this.saveUnLike}>
-                    Skip
-                </div>
+                {/* <div>Style: {this.state.artworks[0].style}</div>
+                 */}
             </div>
         )
 

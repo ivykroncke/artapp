@@ -16,7 +16,7 @@ export default class Nav extends Component {
     const userId = this.props.userId
     return (
       <NavBar>
-        <div>ART APP</div>
+        <StyledLink to={'/users'}>ART APP</StyledLink >
         <div>{this.props.username}</div>
         <StyledLink to={`/users/${userId}/edit`}>Edit User</StyledLink>
       </NavBar>

@@ -40,10 +40,7 @@ export default class Dashboard extends Component {
       <Container>
         <Nav 
           username={this.state.username}
-          userId={this.state.userId}
-        />
-        {/* <div> Username: {this.state.username}</div> */}
-        {/* <Link to={`/users/${userId}/edit`}>Edit User</Link> */}
+          userId={this.state.userId} />
         <BrowseArt 
         username={this.state.username}
         userId={this.state.userId}
