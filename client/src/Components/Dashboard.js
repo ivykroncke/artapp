@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 export default class Dashboard extends Component {
 
   state = {
-    username: ''
+    username: '',
+    userId: '',
+    firstname: '',
+    lastname: '',
+    artworks: [{}]
   }
 
   getUsername = async () => {
@@ -15,13 +19,17 @@ export default class Dashboard extends Component {
       username: response.data.userName,
       userId: response.data._id,
       firstName: response.data.firstName,
-      lastName: response.data.lastName
+      lastName: response.data.lastName,
+      artworks: response.data.artworks
     })
+    await console.log(this.state)
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.getUsername()
   }
+
+
 
   render() {
     const userId = this.props.match.params.userId
@@ -30,6 +38,12 @@ export default class Dashboard extends Component {
         <h1>Dashboard</h1>
         <div> Username: {this.state.username}</div>
           <Link to={`/users/${userId}/edit`}>Edit User</Link>
+        <div>
+        <img src='http://www.fillmurray.com/200/200' alt='fillmurray' />
+        </div>
+        <div> Like </div><div> Skip </div>
+        <div>Info about this artist</div>
+
       </div>
     )
   }
