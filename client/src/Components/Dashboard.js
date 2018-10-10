@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import BrowseArt from './BrowseArt';
 import Gallery from './Gallery';
+import Nav from './Nav';
 
 import { Container } from './SharedComponents';
 
@@ -37,9 +38,12 @@ export default class Dashboard extends Component {
 
     return (
       <Container>
-        <h1>Dashboard</h1>
-        <div> Username: {this.state.username}</div>
-        <Link to={`/users/${userId}/edit`}>Edit User</Link>
+        <Nav 
+          username={this.state.username}
+          userId={this.state.userId}
+        />
+        {/* <div> Username: {this.state.username}</div> */}
+        {/* <Link to={`/users/${userId}/edit`}>Edit User</Link> */}
         <BrowseArt 
         username={this.state.username}
         userId={this.state.userId}
