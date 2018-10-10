@@ -27,15 +27,14 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/client/build/'));
 
 //ROUTES
-app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/client/build/index.html')
-})
-
 const usersController = require('./routes/usersController')
 const artworksController = require('./routes/artworksController')
 
 app.use('/api/users', usersController)
 app.use('/api/users/:userId/artworks', artworksController)
 
+app.get('/*', (req,res) => {
+  res.sendFile(__dirname + '/client/build/index.html')
+})
 
 module.exports = app;
