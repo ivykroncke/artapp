@@ -26,9 +26,7 @@ export default class BrowseArt extends Component {
         const baseTokenUrl = `https://api.artsy.net/api/tokens/xapp_token`
         const clientId = process.env.REACT_APP_CLIENT_ID
         const clientSecret = process.env.REACT_APP_CLIENT_SECRET
-
-        console.log('Client ID:', clientId)
-        console.log('Client Secret:', clientSecret)
+        
         const tokenUrl = `${baseTokenUrl}/?client_id=${clientId}&client_secret=${clientSecret}`
         const tokenResponse = await axios.post(tokenUrl)
 
@@ -42,7 +40,6 @@ export default class BrowseArt extends Component {
 
         const response = await axios.get(url)
         await this.artsyToState(response.data)
-        // console.log(response.data)
     }
 
     artsyToState = (response) => {
@@ -54,7 +51,6 @@ export default class BrowseArt extends Component {
             img: artInfo._links.thumbnail.href
         }
         this.setState({ artInfo: newInfo })
-
     }
 
     saveLike = async () => {
