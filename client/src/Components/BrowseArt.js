@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import {  StyledImage } from './SharedComponents'
-import {  TopInfo } from './SharedComponents'
-import {  Artist } from './SharedComponents'
-import {  ArtistAndTitleAndYear } from './SharedComponents'
-import {  TitleAndYear } from './SharedComponents'
-import {  LikeButtons } from './SharedComponents'
-import {  LikeOrSkip } from './SharedComponents'
+import { StyledImage } from './SharedComponents'
+import { TopInfo } from './SharedComponents'
+import { Artist } from './SharedComponents'
+import { ArtistAndTitleAndYear } from './SharedComponents'
+import { TitleAndYear } from './SharedComponents'
+import { LikeButtons } from './SharedComponents'
+import { LikeOrSkip } from './SharedComponents'
 
 
 export default class BrowseArt extends Component {
@@ -23,35 +23,32 @@ export default class BrowseArt extends Component {
                 img: 'https://www.historylists.org/images/campbell\'s-soup-cans-by-andy-warhol.jpg',
                 liked: false,
                 unliked: false
-            },
-            {
-                title: 'Guernica',
-                artist: 'Pablo Picasso',
-                style: 'Cubism',
-                year: 1937,
-                img: 'https://www.historylists.org/images/guernica-by-pablo-picasso.jpg',
-                liked: false,
-                unliked: false
-            },
-            {
-                title: 'No 1 (1950) Lavender Mist',
-                artist: 'Jackson Pollock',
-                style: 'Abstract Expressionism',
-                year: 1950,
-                img: 'https://www.historylists.org/images/guernica-by-pablo-picasso.jpg',
-                liked: false,
-                unliked: false
             }
         ]
     }
 
-    goToArtsyApi = async () => {
-        const url = `https://api.artsy.net/api/`
-        const params = {
-            clientId: process.env.REACT_CLIENT_ID,
-            clientSecret: process.env.REACT_CLIENT_SECRET
-        }
-        const response = await axios.get(url, params)
+    componentDidMount = async () => {
+        const token = await this.getTokenFromApi()
+        await this.goToArtsyApi(token)
+    }
+
+    getTokenFromApi = async() => {
+        const baseTokenUrl = `https://api.artsy.net/api/tokens/xapp_token`
+        const clientId = process.env.REACT_APP_CLIENT_ID
+        const clientSecret = process.env.REACT_APP_CLIENT_SECRET
+
+        const tokenUrl = `${baseTokenUrl}/?client_id=${clientId}&client_secret=${clientSecret}`
+        const tokenResponse = await axios.post(tokenUrl)
+
+        return tokenResponse.data.token
+    }
+
+    goToArtsyApi = async (token) => {
+        const url = `https://api.artsy.net/api/artists/5130e507f8d955c245000377`
+        axios.defaults.headers['X-XAPP-Token'] = token
+        axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
+
+        const response = await axios.get(url)
         console.log(response.data)
     }
 
@@ -95,7 +92,6 @@ export default class BrowseArt extends Component {
                 <StyledImage src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
                 {/* <div>Style: {this.state.artworks[0].style}</div>
                  */}
-                 <button onClick={this.goToArtsyApi}> Artsy API </button>
             </div>
         )
 
