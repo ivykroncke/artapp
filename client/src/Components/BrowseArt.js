@@ -45,6 +45,15 @@ export default class BrowseArt extends Component {
         ]
     }
 
+    goToArtsyApi = async () => {
+        const url = `www.artsy.com`
+        const params = {
+            clientId: process.env.REACT_CLIENT_ID,
+            clientSecret: process.env.REACT_CLIENT_SECRET
+        }
+        const response = axios.get(url, params)
+    }
+
     handleChange = () => {
         const artworks = [...this.state.artworks[0]]
         console.log(artworks)
