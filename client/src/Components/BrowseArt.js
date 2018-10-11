@@ -34,16 +34,21 @@ export default class BrowseArt extends Component {
     }
 
     goToArtsyApi = async (token) => {
-        const url = `https://api.artsy.net/api/artworks/516dfb9ab31e2b2270000c45`
+        const baseSearchUrl = `https://api.artsy.net/api/search?q=`
+        const searchWord = `lady`
+        const url = `${baseSearchUrl}${searchWord}`
+
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
 
         const response = await axios.get(url)
-        await this.artsyToState(response.data)
+        // await console.log(response.data._embedded.results[0])
+        await this.artsyToState(response.data._embedded.results[0])
     }
 
     artsyToState = (response) => {
         const artInfo = response
+        console.log(response)
         let newInfo = {
             title: artInfo.title,
             medium: artInfo.medium,
@@ -73,7 +78,7 @@ export default class BrowseArt extends Component {
 
         return (
             <div>
-
+                <div> </div>
                 <TopInfo>
                     <ArtistAndTitleAndYear>
                         <Artist>Artist</Artist>
@@ -85,7 +90,7 @@ export default class BrowseArt extends Component {
                     </ LikeButtons>
                 </TopInfo>
                 <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
-                <div>Medium: {this.state.artInfo.medium}</div>
+                {/* <div>Medium: {this.state.artInfo.medium}</div> */}
             </div>
         )
 
