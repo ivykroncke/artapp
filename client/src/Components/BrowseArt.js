@@ -45,7 +45,10 @@ export default class BrowseArt extends Component {
     artsyToState = (response) => {
         const artInfo = response
         let newInfo = {
-            id: artInfo.id
+            title: artInfo.title,
+            medium: artInfo.medium,
+            date: artInfo.date,
+            img: artInfo._links.thumbnail.href
         }
         this.setState({ artInfo: newInfo })
 
@@ -77,23 +80,18 @@ export default class BrowseArt extends Component {
         return (
             <div>
 
-                <div>{this.state.artInfo.id}</div>
-
-
-                {/* <TopInfo>
+                <TopInfo>
                     <ArtistAndTitleAndYear>
-                        {/* <Artist>{this.state.artworks[0].artist}</Artist> */}
-                        {/* <TitleAndYear>{this.state.title}, {this.state.date}</TitleAndYear>
+                        <Artist>Artist</Artist>
+                        <TitleAndYear>{this.state.artInfo.title}, {this.state.artInfo.date}</TitleAndYear>
                     </ArtistAndTitleAndYear>
                     <LikeButtons >
                         <LikeOrSkip onClick={this.saveLike}>Like</LikeOrSkip>
                         <LikeOrSkip onClick={this.saveUnLike}>Skip</LikeOrSkip>
                     </ LikeButtons>
                 </TopInfo>
-                <div> {this.state.slug} </div> */}
-                {/* <StyledImage src={this.state._links.image} alt='the old violin' /> */}
-                {/* <div>Style: {this.state.artworks[0].style}</div>
-                 */} 
+                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} /> */}
+                <div>Medium: {this.state.artInfo.medium}</div>
             </div>
         )
 
