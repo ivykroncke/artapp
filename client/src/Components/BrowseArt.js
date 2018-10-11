@@ -90,7 +90,7 @@ export default class BrowseArt extends Component {
                         <LikeOrSkip onClick={this.saveUnLike}>Skip</LikeOrSkip>
                     </ LikeButtons>
                 </TopInfo>
-                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} /> */}
+                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
                 <div>Medium: {this.state.artInfo.medium}</div>
             </div>
         )

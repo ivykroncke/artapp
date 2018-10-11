@@ -19,7 +19,8 @@ export const StyledHOne = styled.h1`
 
 //BrowseArt Image Settings
 export const StyledImage = styled.img`
-  width: 80%;
+    max-width: 75vw;
+    max-height: 75vh;
 `
 
 //Top Info Bar for BrowseArt
