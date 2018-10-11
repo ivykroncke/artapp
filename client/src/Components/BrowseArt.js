@@ -34,15 +34,13 @@ export default class BrowseArt extends Component {
     }
 
     goToArtsyApi = async (token) => {
-        const baseSearchUrl = `https://api.artsy.net/api/search?q=`
-        const searchWord = `lady`
-        const url = `${baseSearchUrl}${searchWord}`
+        const searchWord = `tree`
+        const url = `https://api.artsy.net/api/search?q=${searchWord}+more:pagemap:metatags-og_type:artworks`
 
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
 
         const response = await axios.get(url)
-        // await console.log(response.data._embedded.results[0])
         await this.artsyToState(response.data._embedded.results[0])
     }
 
