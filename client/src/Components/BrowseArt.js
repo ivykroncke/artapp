@@ -27,6 +27,8 @@ export default class BrowseArt extends Component {
         const clientId = process.env.REACT_APP_CLIENT_ID
         const clientSecret = process.env.REACT_APP_CLIENT_SECRET
 
+        console.log('Client ID:', clientId)
+        console.log('Client Secret:', clientSecret)
         const tokenUrl = `${baseTokenUrl}/?client_id=${clientId}&client_secret=${clientSecret}`
         const tokenResponse = await axios.post(tokenUrl)
 
