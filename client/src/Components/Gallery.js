@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 
-const GalleryGrid = styled.div`
-  display: grid;
-  grid-template-columns: 50vw 50vw;
-  grid-gap: 1fr;
-  align-items: center;
-`
+import { GalleryGrid } from './SharedComponents'
+import { GridImage } from './SharedComponents'
+import { GalleryHeading } from './SharedComponents'
 
-const GridImage = styled.img`
-  max-width: 25vw;
-  padding: 25px;
-`
 
 export default class Gallery extends Component {
     
@@ -26,6 +18,7 @@ export default class Gallery extends Component {
       
     return (
       <div>
+        <GalleryHeading>{this.props.username}'s Gallery</GalleryHeading>
         <GalleryGrid>
           {artworksList}
        </GalleryGrid>

@@ -1,43 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-import styled from 'styled-components'
-
-const StyledImage = styled.img`
-  width: 80%;
-`
-
-const TopInfo = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 75%;
-    padding: 20px 20px 10px 20px;
-`
-
-const Artist = styled.div`
-    text-align: left;
-    font-size: 24px;
-    padding-bottom: 5px;
-`
-
-const ArtistAndTitleAndYear = styled.div`
-    margin-left: 10%;
-`
-
-const TitleAndYear = styled.div`
-    text-align: left;
-    font-size: 12px;
-`
-
-const LikeButtons = styled.div`
-    align-items: right;
-`
-
-const LikeOrSkip = styled.div`
-    :hover {
-        color: lightgray;
-    }
-`
+import {  StyledImage } from './SharedComponents'
+import {  TopInfo } from './SharedComponents'
+import {  Artist } from './SharedComponents'
+import {  ArtistAndTitleAndYear } from './SharedComponents'
+import {  TitleAndYear } from './SharedComponents'
+import {  LikeButtons } from './SharedComponents'
+import {  LikeOrSkip } from './SharedComponents'
 
 
 export default class BrowseArt extends Component {

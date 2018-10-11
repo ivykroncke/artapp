@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import BrowseArt from './BrowseArt';
 import Gallery from './Gallery';
 import Nav from './Nav';
@@ -40,7 +39,9 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const userId = this.props.match.params.userId
+    // Keep an eye on this in case anything breaks, but shouldn't need anymore
+    // since most everything can be pulled from this.state...
+    // const userId = this.props.match.params.userId
 
     return (
       <Container>
@@ -50,6 +51,7 @@ export default class Dashboard extends Component {
 
         <div>
           {this.state.browseOrGallery ? (
+            
             <div>
               <BrowseArt
                 username={this.state.username}
@@ -57,9 +59,11 @@ export default class Dashboard extends Component {
                 firstName={this.state.firstName}
                 lastName={this.state.lastName}
                 artworks={this.state.artworks} />
+
               <button onClick={this.toggleBrowseOrGallery}>
                 View Your Artwork
               </button>
+
             </div>
           ) : (
               <div>
@@ -68,10 +72,11 @@ export default class Dashboard extends Component {
                   userId={this.state.userId}
                   firstName={this.state.firstName}
                   lastName={this.state.lastName}
-                  artworks={this.state.artworks}
-                />
+                  artworks={this.state.artworks} />
+
                 <button onClick={this.toggleBrowseOrGallery}>
                   Back To Browse </button>
+
               </div>
             )}
         </div>
