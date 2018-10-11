@@ -39,9 +39,6 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    // Keep an eye on this in case anything breaks, but shouldn't need anymore
-    // since most everything can be pulled from this.state...
-    // const userId = this.props.match.params.userId
 
     return (
       <Container>

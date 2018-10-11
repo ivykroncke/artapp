@@ -13,18 +13,7 @@ import { LikeOrSkip } from './SharedComponents'
 export default class BrowseArt extends Component {
 
     state = {
-        //faux API for testing... will change to broader external sheet or connect external API
-        artworks: [
-            {
-                title: 'Campbell\'s Soup Cans',
-                artist: 'Andy Warhol',
-                style: 'Pop',
-                year: 1962,
-                img: 'https://www.historylists.org/images/campbell\'s-soup-cans-by-andy-warhol.jpg',
-                liked: false,
-                unliked: false
-            }
-        ]
+        artworks: [{}]
     }
 
     componentDidMount = async () => {

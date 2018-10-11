@@ -7,7 +7,7 @@ import { GalleryHeading } from './SharedComponents'
 
 export default class Gallery extends Component {
     
-  render() {
+  render()  {
       const artworksList = this.props.artworks.map((artwork, i) => {
           return (
               <div key={i} >
