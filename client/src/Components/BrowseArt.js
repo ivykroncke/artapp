@@ -13,7 +13,8 @@ import { LikeOrSkip } from './SharedComponents'
 export default class BrowseArt extends Component {
 
     state = {
-        artInfo: {}
+        artInfo: {
+        }
     }
 
     componentDidMount = async () => {
@@ -54,25 +55,20 @@ export default class BrowseArt extends Component {
 
     }
 
-    handleChange = () => {
-        const artworks = [...this.state.artworks[0]]    }
-
     saveLike = async () => {
-        const artworks = [...this.state.artworks]
-        artworks[0].liked = true
-        this.setState({ artworks })
-
+        const artInfo = {...this.state.artInfo}
+        artInfo.liked = true
+        this.setState({ artInfo })
         const userId = this.props.userId
-        await axios.post(`/api/users/${userId}/artworks`, artworks[0])
+        await axios.post(`/api/users/${userId}/artworks`, artInfo)
     }
 
     saveUnLike = async () => {
-        const artworks = [...this.state.artworks]
-        artworks[0].unliked = true
-        this.setState({ artworks })
-
+        const artInfo = {...this.state.artInfo}
+        artInfo.unliked = true
+        this.setState({ artInfo })
         const userId = this.props.userId
-        await axios.post(`/api/users/${userId}/artworks`, artworks[0])
+        await axios.post(`/api/users/${userId}/artworks`, artInfo)
     }
 
     render() {
