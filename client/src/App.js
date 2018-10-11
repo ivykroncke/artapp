@@ -6,8 +6,6 @@ import Login from './Components/Login';
 import Dashboard from './Components/Dashboard';
 import EditUserView from './Components/EditUserView';
 import NotFound from './Components/NotFound';
-import Nav from './Components/Nav';
-
 
 class App extends Component {
   render() {

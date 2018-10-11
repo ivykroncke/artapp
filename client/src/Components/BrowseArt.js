@@ -46,12 +46,13 @@ export default class BrowseArt extends Component {
     }
 
     goToArtsyApi = async () => {
-        const url = `www.artsy.com`
+        const url = `https://api.artsy.net/api/`
         const params = {
             clientId: process.env.REACT_CLIENT_ID,
             clientSecret: process.env.REACT_CLIENT_SECRET
         }
-        const response = axios.get(url, params)
+        const response = await axios.get(url, params)
+        console.log(response.data)
     }
 
     handleChange = () => {
@@ -94,6 +95,7 @@ export default class BrowseArt extends Component {
                 <StyledImage src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
                 {/* <div>Style: {this.state.artworks[0].style}</div>
                  */}
+                 <button onClick={this.goToArtsyApi}> Artsy API </button>
             </div>
         )
 
