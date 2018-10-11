@@ -34,8 +34,18 @@ export default class BrowseArt extends Component {
     }
 
     goToArtsyApi = async (token) => {
+        const searchArray = ['Tree', 'Woman', 'Madonna', 'Fruit']
+        const arrayLength = searchArray.length
+
+        const getRandomArtwork = (max) => {
+            return Math.floor(Math.random() * Math.floor(max));
+          }
+        
+        const i = getRandomArtwork(arrayLength)
+
+
         const searchWord = `tree`
-        const url = `https://api.artsy.net/api/search?q=${searchWord}+more:pagemap:metatags-og_type:artworks`
+        const url = `https://api.artsy.net/api/search?q=${searchArray[i]}+more:pagemap:metatags-og_type:artworks`
 
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
@@ -46,7 +56,6 @@ export default class BrowseArt extends Component {
 
     artsyToState = (response) => {
         const artInfo = response
-        console.log(response)
         let newInfo = {
             title: artInfo.title,
             medium: artInfo.medium,
