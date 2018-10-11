@@ -13,7 +13,7 @@ import { LikeOrSkip } from './SharedComponents'
 export default class BrowseArt extends Component {
 
     state = {
-        artworks: [{}]
+        artInfo: {}
     }
 
     componentDidMount = async () => {
@@ -21,7 +21,7 @@ export default class BrowseArt extends Component {
         await this.goToArtsyApi(token)
     }
 
-    getTokenFromApi = async() => {
+    getTokenFromApi = async () => {
         const baseTokenUrl = `https://api.artsy.net/api/tokens/xapp_token`
         const clientId = process.env.REACT_APP_CLIENT_ID
         const clientSecret = process.env.REACT_APP_CLIENT_SECRET
@@ -33,18 +33,26 @@ export default class BrowseArt extends Component {
     }
 
     goToArtsyApi = async (token) => {
-        const url = `https://api.artsy.net/api/artists/5130e507f8d955c245000377`
+        const url = `https://api.artsy.net/api/artworks/516dfb9ab31e2b2270000c45`
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
 
         const response = await axios.get(url)
-        console.log(response.data)
+        await this.artsyToState(response.data)
+        // console.log(response.data)
+    }
+
+    artsyToState = (response) => {
+        const artInfo = response
+        let newInfo = {
+            id: artInfo.id
+        }
+        this.setState({ artInfo: newInfo })
+
     }
 
     handleChange = () => {
-        const artworks = [...this.state.artworks[0]]
-        console.log(artworks)
-    }
+        const artworks = [...this.state.artworks[0]]    }
 
     saveLike = async () => {
         const artworks = [...this.state.artworks]
@@ -68,19 +76,24 @@ export default class BrowseArt extends Component {
 
         return (
             <div>
-                <TopInfo>
+
+                <div>{this.state.artInfo.id}</div>
+
+
+                {/* <TopInfo>
                     <ArtistAndTitleAndYear>
-                        <Artist>{this.state.artworks[0].artist}</Artist>
-                        <TitleAndYear>{this.state.artworks[0].title}, {this.state.artworks[0].year}</TitleAndYear>
+                        {/* <Artist>{this.state.artworks[0].artist}</Artist> */}
+                        {/* <TitleAndYear>{this.state.title}, {this.state.date}</TitleAndYear>
                     </ArtistAndTitleAndYear>
                     <LikeButtons >
                         <LikeOrSkip onClick={this.saveLike}>Like</LikeOrSkip>
                         <LikeOrSkip onClick={this.saveUnLike}>Skip</LikeOrSkip>
                     </ LikeButtons>
                 </TopInfo>
-                <StyledImage src={this.state.artworks[0].img} alt={this.state.artworks[0].title} />
+                <div> {this.state.slug} </div> */}
+                {/* <StyledImage src={this.state._links.image} alt='the old violin' /> */}
                 {/* <div>Style: {this.state.artworks[0].style}</div>
-                 */}
+                 */} 
             </div>
         )
 
