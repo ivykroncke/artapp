@@ -20,14 +20,16 @@ View Live on Heroku: https://kroncke-art-app.herokuapp.com/
 * Heroku
 * Git, GitHub
 
-## Timeboxing and User Stories
-Trello: https://trello.com/b/6ITfHLE4/art-app
+## Planning
+User Stories On Trello:
+https://trello.com/b/6ITfHLE4/art-app
 
-## Wireframes and ERD
-![wirefreame - components](https://github.com/ivykroncke/artapp/blob/master/markdownimages/wireframe_components.jpg)
+![Wirefreame](https://github.com/ivykroncke/artapp/blob/master/markdownimages/ComponentTree.jpg)
 
-![wireframe - routes](https://github.com/ivykroncke/artapp/blob/master/markdownimages/wireframe_routes.jpg)
+![ComponentTree](https://github.com/ivykroncke/artapp/blob/master/markdownimages/Wireframe.jpg)
 
+
+![ERD](https://github.com/ivykroncke/artapp/blob/master/markdownimages/ERD.jpg)
 
 ## Future Development
 * Displaying More Data on the App. I would like to restrict the search to just one type of data - e.g. just artworks - so that I can consistently find descriptive details in the response data from the API.
