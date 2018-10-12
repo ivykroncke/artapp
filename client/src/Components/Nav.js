@@ -13,7 +13,7 @@ const NavBar = styled.div`
 `
 
 const NavSiteTitle = styled(Link)`
-  margin-left: 2rem;
+  margin-left: 2vw;
   font-family: 'Roboto Slab';
   font-size: 2rem;
   text-decoration: none;
@@ -21,8 +21,9 @@ const NavSiteTitle = styled(Link)`
 `
 
 const UserLink = styled(Link)`
-  margin-right: 2rem;
+  margin: 2vw;
   font-family: 'Montserrat';
+  font-size: 1rem;
   color: white;
 `
 
@@ -32,9 +33,10 @@ export default class Nav extends Component {
     return (
       <NavBar>
         <NavSiteTitle to={'/users'}>artfind.</NavSiteTitle >
-        <UserLink to={`/users/${userId}/edit`}>
-          {this.props.username} <Icon fitted name='edit'/>
-        </UserLink>
+        <div> {this.props.username}
+          <UserLink to={`/users/${userId}/edit`}>
+            <Icon fitted name='edit' size='large' /> </UserLink>
+        </div>
       </NavBar>
     )
   }
