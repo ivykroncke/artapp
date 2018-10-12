@@ -2,6 +2,8 @@
 
 The ArtFind app makes it easy to Browse works of art and flag your favorites to broaden your tastes as an aspiring art lover. Create your own profile to collect images that speak to you. Links to articles on Artsy make it easy to learn more about artists and artworks.
 
+View Live on Heroku: https://kroncke-art-app.herokuapp.com/
+
 ## Features
 * Quickly thumbs down or thumbs up artwork that can be saved to your user profile to review later.
 * Create, Update, or Delete your user profile right from the app.
@@ -21,9 +23,11 @@ The ArtFind app makes it easy to Browse works of art and flag your favorites to 
 ## Timeboxing and User Stories
 Trello: https://trello.com/b/6ITfHLE4/art-app
 
-## ERD
+## Wireframes and ERD
+![wirefreame - components](https://github.com/ivykroncke/artapp/blob/master/markdownimages/wireframe_components.jpg)
 
-## Wireframes
+![wireframe - routes](https://github.com/ivykroncke/artapp/blob/master/markdownimages/wireframe_routes.jpg)
+
 
 ## Future Development
 * Displaying More Data on the App. I would like to restrict the search to just one type of data - e.g. just artworks - so that I can consistently find descriptive details in the response data from the API.
