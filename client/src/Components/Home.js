@@ -30,7 +30,7 @@ export default class Home extends Component {
   render() {
     return (
       <HomeBackground>
-        <SiteTitle>artapp</ SiteTitle>
+        <SiteTitle>artfind.</ SiteTitle>
         <StyledLink to={`/users`}>sign in</ StyledLink>
       </HomeBackground>
     )

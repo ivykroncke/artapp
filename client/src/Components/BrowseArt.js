@@ -45,7 +45,8 @@ export default class BrowseArt extends Component {
         let searchArray = this.state.searchArray
         const arrayLength = this.state.searchArray.length
         const getRandomInteger = (max) => {
-            return Math.floor(Math.random() * Math.floor(max))}
+            return Math.floor(Math.random() * Math.floor(max))
+        }
         const i = getRandomInteger(arrayLength)
 
         const url = `https://api.artsy.net/api/search?q=${searchArray[i]}`
@@ -93,30 +94,28 @@ export default class BrowseArt extends Component {
         await this.goToArtsyApi(token)
     }
 
+
     render() {
-        const moreInfo = this.state.artInfo.link
-        console.log(moreInfo)
         return (
             <div>
                 <TopInfo>
                     <Artist>{this.state.artInfo.title}</Artist>
                 </TopInfo>
 
-                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} 
-                    href={`${moreInfo}`}/>
+                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
 
                 <LikeButtons >
                     <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large' /></LikeOrSkip>
                     <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
                 </ LikeButtons>
                 <div>
-                    <div> {this.state.artInfo.description}</div>
-                    <a href={`${moreInfo}`} target='_blank'> More Information </a>
+                    {this.state.artInfo.link ? (
+                        <a href={`${this.state.artInfo.link}`} target='_blank'> More Information </a>
+                    ) : (
+                            null
+                        )}
                 </div>
-
             </div>
         )
-
     }
-
 }
