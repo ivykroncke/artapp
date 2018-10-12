@@ -99,11 +99,8 @@ export const LikeOrSkip = styled.div`
 `
 
 //CSS Grid for Gallery Page
-export const GalleryGrid = styled.div`
-  display: grid;
-  grid-template-columns: 50vw 50vw;
-  grid-gap: 1fr;
-  align-items: center;
+export const GalleryDiv = styled.div `
+    margin: 3vh 10vw;
 `
 
 export const GridImage = styled.img`

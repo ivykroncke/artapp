@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 
-import { Artist } from './SharedComponents'
-import { Title } from './SharedComponents'
-import { SpaceDiv } from './SharedComponents'
+import { Artist, Title, SpaceDiv, GalleryDiv } from './SharedComponents'
 import { Grid, Segment, Button, Image } from 'semantic-ui-react'
 
 
@@ -19,16 +17,14 @@ export default class Gallery extends Component {
       )
     })
 
-
-
     return (
-      <div>
+      <GalleryDiv>
         <Artist>Gallery</Artist>
         <SpaceDiv />
-        <Grid verticalAlign='middle' columns={3} centered>
+        <Grid verticalAlign='middle' relaxed='very' columns={3} centered >
           <Grid.Row>{artworksList}</Grid.Row>
         </Grid>
-      </div>
+      </GalleryDiv>
     )
   }
 }
