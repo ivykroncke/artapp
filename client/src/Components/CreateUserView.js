@@ -39,9 +39,9 @@ export default class CreateUserView extends Component {
             <label> Last Name </label>
             <input type='text' name='lastName' onChange={this.handleChange} />
           </Form.Field>
-          <Button type='submit'
+          <Button basic color='black' type='submit'
             value='Create New User'
-            onClick={this.addUser} />
+            onClick={this.addUser}> Submit</Button>
         </Form>
       </div>
     )
