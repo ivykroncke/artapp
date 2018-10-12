@@ -6,7 +6,7 @@ import { TopInfo } from './SharedComponents'
 import { Artist } from './SharedComponents'
 import { LikeButtons } from './SharedComponents'
 import { LikeOrSkip } from './SharedComponents'
-import { Icon } from 'semantic-ui-react'
+import { Icon, Button } from 'semantic-ui-react'
 
 
 export default class BrowseArt extends Component {
@@ -109,6 +109,10 @@ export default class BrowseArt extends Component {
         await this.goToArtsyApi(token)
     }
 
+    callToggle = () => {
+        this.props.toggleBrowseOrGallery()
+    }
+
     render() {
         return (
             <div>
@@ -123,14 +127,9 @@ export default class BrowseArt extends Component {
                     <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
                 </ LikeButtons>
 
-                <div>
-                    {this.state.artInfo.link ? (
-                        <a href={`${this.state.artInfo.link}`} target='_blank' rel="noopener noreferrer" > More Information </a>
-                    ) : (
-                            null
-                        )}
-                </div>
-
+                <Button basic color='black' onClick={this.callToggle}>
+                    View Your Artwork
+                </Button>
             </div>
         )
     }
