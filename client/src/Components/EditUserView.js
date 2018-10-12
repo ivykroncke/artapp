@@ -51,6 +51,7 @@ export default class EditUserView extends Component {
 
 
     open = () => this.setState({ open: true })
+    close = () => this.setState({ open: false })
 
     render() {
         const userId = this.props.match.params.userId
