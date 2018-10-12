@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Form } from 'semantic-ui-react'
 
 export default class CreateUserView extends Component {
   state = {
@@ -25,22 +26,23 @@ export default class CreateUserView extends Component {
   render() {
     return (
       <div>
-        <form>
-          <div> Create username:
+        <Form>
+          <Form.Field>
+            <label> Username </label>
             <input type='text' name='userName' onChange={this.handleChange} />
-          </div>
-          <div> First Name:
+          </Form.Field>
+          <Form.Field>
+            <label> First Name </label>
             <input type='text' name='firstName' onChange={this.handleChange} />
-          </div>
-          <div> Last Name:
+          </Form.Field>
+          <Form.Field>
+            <label> Last Name </label>
             <input type='text' name='lastName' onChange={this.handleChange} />
-          </div>
-          <div>
-            <input type='submit'
-              value='Create New User'
-              onClick={this.addUser} />
-          </div>
-        </form>
+          </Form.Field>
+          <Button type='submit'
+            value='Create New User'
+            onClick={this.addUser} />
+        </Form>
       </div>
     )
   }

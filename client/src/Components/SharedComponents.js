@@ -1,6 +1,29 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+
+export const HomeBackground = styled.div`
+  background-image: url('https://images.unsplash.com/photo-1485518994577-6cd6324ade8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f3f11b8b84945900bb523818d6d594c&auto=format&fit=crop&w=1544&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+`
+
+export const LoginBackground = styled.div`
+  background-image: url('https://images.unsplash.com/photo-1485518994577-6cd6324ade8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f3f11b8b84945900bb523818d6d594c&auto=format&fit=crop&w=1544&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
 //Container for Dashboard.js
 export const Container = styled.div`
     text-align: center;
