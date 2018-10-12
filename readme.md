@@ -28,7 +28,6 @@ https://trello.com/b/6ITfHLE4/art-app
 
 ![ComponentTree](https://github.com/ivykroncke/artapp/blob/master/markdownimages/Wireframe.jpg)
 
-
 ![ERD](https://github.com/ivykroncke/artapp/blob/master/markdownimages/ERD.jpg)
 
 ## Future Development
