@@ -1,14 +1,29 @@
 import React, { Component } from 'react'
-import { StyledLink } from './SharedComponents'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Icon } from 'semantic-ui-react'
 
 const NavBar = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0 auto;
     padding: 20px;
     background-color: black;
     color: white;
+`
+
+const NavSiteTitle = styled(Link)`
+  margin-left: 2rem;
+  font-family: 'Roboto Slab';
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
+`
+
+const UserLink = styled(Link)`
+  margin-right: 2rem;
+  font-family: 'Montserrat';
+  color: white;
 `
 
 export default class Nav extends Component {
@@ -16,9 +31,10 @@ export default class Nav extends Component {
     const userId = this.props.userId
     return (
       <NavBar>
-        <StyledLink to={'/users'}>ART APP</StyledLink >
-        <div>{this.props.username}</div>
-        <StyledLink to={`/users/${userId}/edit`}>Edit User</StyledLink>
+        <NavSiteTitle to={'/users'}>artfind.</NavSiteTitle >
+        <UserLink to={`/users/${userId}/edit`}>
+          {this.props.username} <Icon fitted name='edit'/>
+        </UserLink>
       </NavBar>
     )
   }

@@ -5,6 +5,16 @@ import Gallery from './Gallery';
 import Nav from './Nav';
 
 import { Container } from './SharedComponents';
+import styled from 'styled-components'
+
+const BrowseContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+
 
 export default class Dashboard extends Component {
   state = {
@@ -47,20 +57,13 @@ export default class Dashboard extends Component {
 
         <div>
           {this.state.browseOrGallery ? (
-            
-            <div>
               <BrowseArt
                 username={this.state.username}
                 userId={this.state.userId}
                 firstName={this.state.firstName}
                 lastName={this.state.lastName}
-                artworks={this.state.artworks} />
-
-              <button onClick={this.toggleBrowseOrGallery}>
-                View Your Artwork
-              </button>
-
-            </div>
+                artworks={this.state.artworks} 
+                toggleBrowseOrGallery={this.toggleBrowseOrGallery}/>
           ) : (
               <div>
                 <Gallery

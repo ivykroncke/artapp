@@ -13,7 +13,7 @@ const thedavid = new Artwork({
     artist: 'Michaelangelo',
     style: 'Italian Renaissance/Realism',
     date: 1504,
-    medium: sculpture,
+    medium: 'sculpture',
     img: 'https://www.visittuscany.com/shared/visittuscany/immagini/blogs/idea/david-michelangelo-accademia.jpg?__scale=w:1333,h:1000,t:2,q:85',
     liked: true,
     unliked: false

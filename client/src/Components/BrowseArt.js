@@ -4,10 +4,11 @@ import axios from 'axios';
 import { StyledImage } from './SharedComponents'
 import { TopInfo } from './SharedComponents'
 import { Artist } from './SharedComponents'
-import { ArtistAndTitleAndYear } from './SharedComponents'
-import { TitleAndYear } from './SharedComponents'
+import { Title } from './SharedComponents'
 import { LikeButtons } from './SharedComponents'
 import { LikeOrSkip } from './SharedComponents'
+
+import { Button, Icon } from 'semantic-ui-react'
 
 
 export default class BrowseArt extends Component {
@@ -39,7 +40,8 @@ export default class BrowseArt extends Component {
         let searchArray = this.state.searchArray
         const arrayLength = this.state.searchArray.length
         const getRandomInteger = (max) => {
-            return Math.floor(Math.random() * Math.floor(max))}
+            return Math.floor(Math.random() * Math.floor(max))
+        }
         const i = getRandomInteger(arrayLength)
 
         const url = `https://api.artsy.net/api/search?q=${searchArray[i]}+more:pagemap:metatags-og_type:artworks`
@@ -88,18 +90,21 @@ export default class BrowseArt extends Component {
 
         return (
             <div>
-                <div> </div>
                 <TopInfo>
-                    <ArtistAndTitleAndYear>
-                        <Artist>Artist</Artist>
-                        <TitleAndYear>{this.state.artInfo.title}, {this.state.artInfo.date}</TitleAndYear>
-                    </ArtistAndTitleAndYear>
-                    <LikeButtons >
-                        <LikeOrSkip onClick={this.saveLike}>Like</LikeOrSkip>
-                        <LikeOrSkip onClick={this.saveUnLike}>Skip</LikeOrSkip>
-                    </ LikeButtons>
+                    <Artist>Artist</Artist>
+                    <Title>{this.state.artInfo.title} {this.state.artInfo.date}</Title>
                 </TopInfo>
+
                 <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
+
+                <LikeButtons >
+                        <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large'/></LikeOrSkip>
+                        <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large'/></LikeOrSkip>
+                    </ LikeButtons>
+
+                <Button basic color='black' onClick={this.props.toggleBrowseOrGallery}>
+                    View Your Artwork
+              </Button>
             </div>
         )
 

@@ -48,29 +48,32 @@ export const StyledImage = styled.img`
 
 //Top Info Bar for BrowseArt
 export const TopInfo = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 75%;
-    padding: 20px 20px 10px 20px;
+    width: 100%;
+    text-align: center;
 `
 
 export const Artist = styled.div`
-    text-align: left;
-    font-size: 24px;
-    padding-bottom: 5px;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.75rem;
+    margin: 1vh 1vw .5vh 1vw;
+    padding: 1rem;
 `
 
-export const ArtistAndTitleAndYear = styled.div`
-    margin-left: 10%;
-`
-
-export const TitleAndYear = styled.div`
-    text-align: left;
-    font-size: 12px;
+export const Title = styled.div`
+    text-align: center;
+    margin: 1vh 1vw;
+    font-size: 1rem;
+    font-style: italic;
+    padding: 1vh 1vh 2vh 1vh;
 `
 
 export const LikeButtons = styled.div`
     align-items: right;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.25rem;
 `
 
 export const LikeOrSkip = styled.div`
