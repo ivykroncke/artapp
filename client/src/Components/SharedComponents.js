@@ -36,10 +36,8 @@ export const LoginHeading = styled.div`
   padding-bottom: 1rem;
 `
 
-export const Delete = styled.div`
-    color: red;
-    padding-top: 2rem;
-    font-style: italic;
+export const SpaceDiv = styled.div`
+    height: 2vh;
 `
 
 //Container for Dashboard.js

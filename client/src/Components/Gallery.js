@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-import { GridImage } from './SharedComponents'
-import { GalleryHeading } from './SharedComponents'
+import { Artist } from './SharedComponents'
+import { Title } from './SharedComponents'
+import { SpaceDiv } from './SharedComponents'
+import { Grid, Segment, Button, Image } from 'semantic-ui-react'
 
-import { Grid, Segment } from 'semantic-ui-react'
 
 
 export default class Gallery extends Component {
@@ -12,7 +13,8 @@ export default class Gallery extends Component {
     const artworksList = this.props.artworks.map((artwork, i) => {
       return (
         <Grid.Column key={i}>
-          <GridImage src={artwork.img} alt='artwork' />
+          <Image src={artwork.img} alt='artwork' />
+          <Title>{artwork.title}</Title>
         </Grid.Column>
       )
     })
@@ -21,7 +23,8 @@ export default class Gallery extends Component {
 
     return (
       <div>
-        <GalleryHeading>Gallery</GalleryHeading>
+        <Artist>Gallery</Artist>
+        <SpaceDiv />
         <Grid verticalAlign='middle' columns={3} centered>
           <Grid.Row>{artworksList}</Grid.Row>
         </Grid>

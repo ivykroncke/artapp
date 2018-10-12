@@ -101,10 +101,6 @@ export default class BrowseArt extends Component {
                         <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large'/></LikeOrSkip>
                         <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large'/></LikeOrSkip>
                     </ LikeButtons>
-
-                <Button basic color='black' onClick={this.props.toggleBrowseOrGallery}>
-                    View Your Artwork
-              </Button>
             </div>
         )
 

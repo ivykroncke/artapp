@@ -6,14 +6,7 @@ import Nav from './Nav';
 
 import { Container } from './SharedComponents';
 import styled from 'styled-components'
-
-const BrowseContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
+import { Button } from 'semantic-ui-react'
 
 
 export default class Dashboard extends Component {
@@ -39,7 +32,7 @@ export default class Dashboard extends Component {
   }
 
   componentDidMount = () => {
-     this.getUsername()
+    this.getUsername()
   }
 
   toggleBrowseOrGallery = () => {
@@ -57,13 +50,17 @@ export default class Dashboard extends Component {
 
         <div>
           {this.state.browseOrGallery ? (
+            <div>
               <BrowseArt
                 username={this.state.username}
                 userId={this.state.userId}
                 firstName={this.state.firstName}
                 lastName={this.state.lastName}
-                artworks={this.state.artworks} 
-                toggleBrowseOrGallery={this.toggleBrowseOrGallery}/>
+                artworks={this.state.artworks} />
+              <Button basic color='black' onClick={this.toggleBrowseOrGallery}>
+                View Your Artwork
+              </Button>
+            </div>
           ) : (
               <div>
                 <Gallery
@@ -71,11 +68,11 @@ export default class Dashboard extends Component {
                   userId={this.state.userId}
                   firstName={this.state.firstName}
                   lastName={this.state.lastName}
-                  artworks={this.state.artworks} />
-
-                <button onClick={this.toggleBrowseOrGallery}>
-                  Back To Browse </button>
-
+                  artworks={this.state.artworks}
+                  toggleBrowseOrGallery={this.state.browseOrGallery} />
+                <Button basic color='black' onClick={this.toggleBrowseOrGallery}>
+                  Back To Browse
+                </Button>
               </div>
             )}
         </div>

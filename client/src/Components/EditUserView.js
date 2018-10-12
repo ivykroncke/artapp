@@ -5,7 +5,7 @@ import axios from 'axios';
 import { LoginBackground } from './SharedComponents'
 import { LoginContainer } from './SharedComponents'
 import { LoginHeading } from './SharedComponents'
-import { Delete } from './SharedComponents'
+import { SpaceDiv } from './SharedComponents'
 
 import { Button, Form, Confirm } from 'semantic-ui-react'
 
@@ -87,14 +87,16 @@ export default class EditUserView extends Component {
                                 placeholder={this.state.user.lastName}
                                 onChange={this.handleChange} />
                         </Form.Field>
+                        <SpaceDiv />
                         <Button basic color='black'
                             type='submit'
                             value='Submit Changes'
                             onClick={this.submitChanges} >
                             Submit Changes
                         </Button>
+                        <SpaceDiv />
                         <div>
-                            <Button onClick={this.open}>Delete this User</Button>
+                            <Button inverted color='red' onClick={this.open}>Delete this User</Button>
                             <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => this.handleDelete(userId)} />
                         </div>
                     </Form>
