@@ -7,18 +7,9 @@ import CreateUserView from './CreateUserView'
 import styled from 'styled-components'
 import { LoginBackground } from './SharedComponents'
 import { Button } from 'semantic-ui-react'
+import { LoginContainer} from './SharedComponents'
+import { LoginHeading} from './SharedComponents'
 
-const LoginContainer = styled.div`
-  background-color: rgba(235, 244, 253, 0.70);
-  padding: 4rem;
-  text-align: center;
-`
-
-const LoginHeading = styled.div`
-  font-family: 'Roboto Slab';
-  font-size: 2rem;
-  padding-bottom: 1rem;
-`
 
 export default class Login extends Component {
 

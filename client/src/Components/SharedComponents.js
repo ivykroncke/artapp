@@ -24,6 +24,24 @@ export const LoginBackground = styled.div`
   align-items: center;
 `
 
+export const LoginContainer = styled.div`
+  background-color: rgba(235, 244, 253, 0.70);
+  padding: 10%;
+  text-align: center;
+`
+
+export const LoginHeading = styled.div`
+  font-family: 'Roboto Slab';
+  font-size: 2rem;
+  padding-bottom: 1rem;
+`
+
+export const Delete = styled.div`
+    color: red;
+    padding-top: 2rem;
+    font-style: italic;
+`
+
 //Container for Dashboard.js
 export const Container = styled.div`
     text-align: center;

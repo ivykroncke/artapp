@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
-// import axios from 'axios'
+
+import { LoginBackground } from './SharedComponents'
+import { LoginContainer } from './SharedComponents'
+import { LoginHeading } from './SharedComponents'
+import { Delete } from './SharedComponents'
+
+import { Button, Form, Confirm } from 'semantic-ui-react'
 
 export default class EditUserView extends Component {
 
     state = {
         user: {},
-        redirectToId: false
+        redirectToId: false,
+        open: false
     }
 
     getUser = async () => {
@@ -23,7 +30,7 @@ export default class EditUserView extends Component {
     }
 
     handleChange = (event) => {
-        const user = {...this.state.user}
+        const user = { ...this.state.user }
         user[event.target.name] = event.target.value
         this.setState({ user })
     }
@@ -39,51 +46,62 @@ export default class EditUserView extends Component {
     handleDelete = async (userId) => {
         await axios.delete(`/api/users/${userId}`)
         await this.getUser()
-        this.setState({ redirectToUsers: true})
+        this.setState({ redirectToUsers: true })
     }
+
+
+    open = () => this.setState({ open: true })
 
     render() {
         const userId = this.props.match.params.userId
-        if(this.state.redirectToId) {
-            return ( <Redirect to={`/users/${userId}`} /> )
+        if (this.state.redirectToId) {
+            return (<Redirect to={`/users/${userId}`} />)
         }
-        if(this.state.redirectToUsers) {
-            return ( <Redirect to={`/users/`} />)
+        if (this.state.redirectToUsers) {
+            return (<Redirect to={`/users/`} />)
         }
 
         return (
-            <div>
-                <h1>Edit User</h1>
-                <form>
-                    <div> Edit Username:
-                        <input name='userName' 
-                        type='text' 
-                        placeholder={this.state.user.userName} 
-                        onChange={this.handleChange}/>
-                    </div>
-                    <div>  Edit First Name:
-                        <input name='firstName' 
-                        type='text' 
-                        placeholder={this.state.user.firstName} 
-                        onChange={this.handleChange}/>
-                    </div>
-                    <div> Edit Last Name:
-                        <input name='lastName' 
-                        type='text' 
-                        placeholder={this.state.user.lastName} 
-                        onChange={this.handleChange}/>
-                    </div>
-                    <input
-                        type='submit'
-                        value='Submit Changes'
-                        onClick={this.submitChanges}
-                    />
-                </form>
+            <LoginBackground>
+                <LoginContainer>
+                    <LoginHeading>Edit User</LoginHeading>
+                    <Form>
+                        <Form.Field>
+                            <label>Username</label>
+                            <input name='userName'
+                                type='text'
+                                placeholder={this.state.user.userName}
+                                onChange={this.handleChange} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>First Name</label>
+                            <input name='firstName'
+                                type='text'
+                                placeholder={this.state.user.firstName}
+                                onChange={this.handleChange} />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Last Name</label>
+                            <input name='lastName'
+                                type='text'
+                                placeholder={this.state.user.lastName}
+                                onChange={this.handleChange} />
+                        </Form.Field>
+                        <Button basic color='black'
+                            type='submit'
+                            value='Submit Changes'
+                            onClick={this.submitChanges} >
+                            Submit Changes
+                        </Button>
+                        <div>
+                            <Button onClick={this.open}>Delete this User</Button>
+                            <Confirm open={this.state.open} onCancel={this.close} onConfirm={() => this.handleDelete(userId)} />
+                        </div>
+                    </Form>
+                </LoginContainer>
 
-                <div onClick={() => this.handleDelete(userId)}>
-                    Delete this User
-                </div>
-            </div>
+
+            </ LoginBackground>
         )
     }
 }
