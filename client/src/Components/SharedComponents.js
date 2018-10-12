@@ -66,7 +66,7 @@ export const GalleryGrid = styled.div`
 
 export const GridImage = styled.img`
   max-width: 25vw;
-  padding: 25px;
+  padding: 3vw 3vh;
 `
 
 export const GalleryHeading = styled.div`
