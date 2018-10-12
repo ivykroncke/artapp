@@ -4,14 +4,13 @@ import axios from 'axios'
 import LoginListView from './LoginListView'
 import CreateUserView from './CreateUserView'
 
-import { LoginBackground } from './SharedComponents'
 import { Button } from 'semantic-ui-react'
-import { LoginContainer} from './SharedComponents'
-import { LoginHeading} from './SharedComponents'
+import { LoginBackground } from './SharedComponents'
+import { LoginContainer } from './SharedComponents'
+import { LoginHeading } from './SharedComponents'
 
 
 export default class Login extends Component {
-
   state = {
     users: [],
     loginView: true,
@@ -37,7 +36,6 @@ export default class Login extends Component {
     console.log(this.state.users)
   }
 
-
   render() {
 
     if (this.state.redirect === true) {
@@ -51,19 +49,21 @@ export default class Login extends Component {
       <LoginBackground>
         {this.state.loginView ? (
           <LoginContainer>
-            <LoginHeading> Sign In </LoginHeading>
+            <LoginHeading>
+              Sign In
+            </LoginHeading>
             <LoginListView
               users={this.state.users} />
             <Button basic color='black' onClick={this.toggleLoginView}>
-              Create New User</Button>
+              Create New User
+            </Button>
           </LoginContainer>
         ) : (
             <LoginContainer>
               <LoginHeading> Create New User </LoginHeading>
               <CreateUserView
                 addUserToUsers={this.addUserToUsers}
-                handleSubmit={this.handleSubmit}
-              />
+                handleSubmit={this.handleSubmit} />
             </LoginContainer>
           )}
       </LoginBackground>

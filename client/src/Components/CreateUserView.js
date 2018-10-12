@@ -3,13 +3,11 @@ import { Button, Form } from 'semantic-ui-react'
 
 export default class CreateUserView extends Component {
   state = {
-
     newUser: {
       userName: '',
       firstName: '',
       lastName: ''
     }
-
   }
 
   handleChange = (event) => {

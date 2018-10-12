@@ -1,18 +1,19 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-
+//Home.js styling
 export const HomeBackground = styled.div`
   background-image: url('https://images.unsplash.com/photo-1485518994577-6cd6324ade8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f3f11b8b84945900bb523818d6d594c&auto=format&fit=crop&w=1544&q=80');
   background-size: cover;
   background-position: center;
-  height: 100vh;
+     height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
 `
 
+//Login.js Styling
 export const LoginBackground = styled.div`
   background-image: url('https://images.unsplash.com/photo-1485518994577-6cd6324ade8f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6f3f11b8b84945900bb523818d6d594c&auto=format&fit=crop&w=1544&q=80');
   background-size: cover;
@@ -58,11 +59,7 @@ export const StyledHOne = styled.h1`
 
 //BrowseArt Image Settings
 export const StyledImage = styled.img`
-    width: 90vw;
-    @media (min-width: 760px) {
-        max-height: 70vh;
-        width: auto;
-    }
+    min-width: 300px;
 `
 
 export const BrowseContainer = styled.div`

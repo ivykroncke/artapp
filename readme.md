@@ -14,6 +14,7 @@ View Live on Heroku: https://kroncke-art-app.herokuapp.com/
 * HTML5, CSS3, JavaScript
 * MERN Stack:
     MongoDB, Express, React, and Node
+* Mongoose
 * Semantic UI 
 * External API: Artsy
 * MongoDB Compass, VS Code, Postman
@@ -35,6 +36,7 @@ https://trello.com/b/6ITfHLE4/art-app
 * With the narrower search, the app could analyze what styles and artists the user gravitates towards and make recommendations based on that. Artsy has some features like that built in already.
 * The randomization process works, but a more truly random way of selecting works for scalability would be ideal.
 
-## Other Credits
-* Artsy API : https://developers.artsy.net/
+## Credits
+* Artsy API: https://developers.artsy.net/
+* Google Fonts: https://fonts.google.com/
 * Unsplash Image by Clem Onojeghuo: https://unsplash.com/photos/xJXxMR5PXoY
