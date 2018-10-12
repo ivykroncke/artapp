@@ -5,9 +5,7 @@ import Gallery from './Gallery';
 import Nav from './Nav';
 
 import { Container } from './SharedComponents';
-import styled from 'styled-components'
 import { Button } from 'semantic-ui-react'
-
 
 export default class Dashboard extends Component {
   state = {

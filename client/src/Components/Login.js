@@ -4,7 +4,6 @@ import axios from 'axios'
 import LoginListView from './LoginListView'
 import CreateUserView from './CreateUserView'
 
-import styled from 'styled-components'
 import { LoginBackground } from './SharedComponents'
 import { Button } from 'semantic-ui-react'
 import { LoginContainer} from './SharedComponents'

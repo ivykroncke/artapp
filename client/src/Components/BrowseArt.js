@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 import { StyledImage } from './SharedComponents'
 import { TopInfo } from './SharedComponents'
 import { Artist } from './SharedComponents'
-import { Title } from './SharedComponents'
 import { LikeButtons } from './SharedComponents'
 import { LikeOrSkip } from './SharedComponents'
 
-import { Button, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 
 export default class BrowseArt extends Component {
@@ -16,7 +16,12 @@ export default class BrowseArt extends Component {
     state = {
         artInfo: {},
         searchArray: [
-            'Tree', 'Woman', 'Madonna', 'Fruit'
+            'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Night', 'Man', 'Floral',
+            'DeKooning', 'Warhol', 'Titian', 'Manet', 'Fraggonnard', 'Bird', 'Field',
+            'Blue', 'America', 'Starry', 'Meninas', 'Demoiselles', 'Sunday', 'Night',
+            'Cafe', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud', 'Venus',
+            'Venus', 'Peristence', 'Pop', 'Hirst', 'Ermine', 'Washington', 'Scream', 'Iris',
+            'Ansel', 'Maplethorpe', 'Mehretu', 'Peyton', 'Boticelli', 'Saturn', 'Goya'
         ]
     }
 
@@ -40,11 +45,10 @@ export default class BrowseArt extends Component {
         let searchArray = this.state.searchArray
         const arrayLength = this.state.searchArray.length
         const getRandomInteger = (max) => {
-            return Math.floor(Math.random() * Math.floor(max))
-        }
+            return Math.floor(Math.random() * Math.floor(max))}
         const i = getRandomInteger(arrayLength)
 
-        const url = `https://api.artsy.net/api/search?q=${searchArray[i]}+more:pagemap:metatags-og_type:artworks`
+        const url = `https://api.artsy.net/api/search?q=${searchArray[i]}`
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
         const response = await axios.get(url)
@@ -57,11 +61,14 @@ export default class BrowseArt extends Component {
 
     artsyToState = (response) => {
         const artInfo = response
+        console.log(artInfo)
         let newInfo = {
             title: artInfo.title,
             medium: artInfo.medium,
+            description: artInfo.description,
             date: artInfo.date,
-            img: artInfo._links.thumbnail.href
+            img: artInfo._links.thumbnail.href,
+            link: artInfo._links.permalink.href
         }
         this.setState({ artInfo: newInfo })
     }
@@ -87,20 +94,26 @@ export default class BrowseArt extends Component {
     }
 
     render() {
-
+        const moreInfo = this.state.artInfo.link
+        console.log(moreInfo)
         return (
             <div>
                 <TopInfo>
-                    <Artist>Artist</Artist>
-                    <Title>{this.state.artInfo.title} {this.state.artInfo.date}</Title>
+                    <Artist>{this.state.artInfo.title}</Artist>
                 </TopInfo>
 
-                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
+                <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} 
+                    href={`${moreInfo}`}/>
 
                 <LikeButtons >
-                        <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large'/></LikeOrSkip>
-                        <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large'/></LikeOrSkip>
-                    </ LikeButtons>
+                    <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large' /></LikeOrSkip>
+                    <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
+                </ LikeButtons>
+                <div>
+                    <div> {this.state.artInfo.description}</div>
+                    <a href={`${moreInfo}`} target='_blank'> More Information </a>
+                </div>
+
             </div>
         )
 
