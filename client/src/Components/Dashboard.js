@@ -29,13 +29,12 @@ export default class Dashboard extends Component {
   }
 
   componentDidMount = () => {
-    this.getUsername()
+     this.getUsername()
   }
 
   toggleBrowseOrGallery = () => {
-    this.setState({
-      browseOrGallery: !this.state.browseOrGallery
-    })
+    this.getUsername()
+    this.setState({ browseOrGallery: !this.state.browseOrGallery })
   }
 
   render() {

@@ -100,7 +100,6 @@ export default class BrowseArt extends Component {
                     </ LikeButtons>
                 </TopInfo>
                 <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
-                {/* <div>Medium: {this.state.artInfo.medium}</div> */}
             </div>
         )
 

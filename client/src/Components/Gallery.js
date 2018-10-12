@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import { GalleryGrid } from './SharedComponents'
 import { GridImage } from './SharedComponents'
 import { GalleryHeading } from './SharedComponents'
 
@@ -14,13 +13,15 @@ export default class Gallery extends Component {
       return (
         <Grid.Column key={i}>
           <GridImage src={artwork.img} alt='artwork' />
-          </Grid.Column>
+        </Grid.Column>
       )
     })
 
+
+
     return (
       <div>
-        <GalleryHeading>{this.props.username}'s Gallery</GalleryHeading>
+        <GalleryHeading>Gallery</GalleryHeading>
         <Grid verticalAlign='middle' columns={3} centered>
           <Grid.Row>{artworksList}</Grid.Row>
         </Grid>
@@ -28,3 +29,4 @@ export default class Gallery extends Component {
     )
   }
 }
+
