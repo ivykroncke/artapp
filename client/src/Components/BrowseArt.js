@@ -15,11 +15,11 @@ export default class BrowseArt extends Component {
     state = {
         artInfo: {},
         searchArray: [
-            'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Night', 'Man', 'Flower',
+            'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Blue', 'Man', 'Flower',
             'DeKooning', 'Warhol', 'Titian', 'Manet', 'Fraggonnard', 'Bird', 'Field',
-            'Blue', 'America', 'Star', 'Meninas', 'moiselle', 'Sunday', 'Night',
+            'Blue', 'America', 'Star', 'Meninas', 'moiselle', 'Sunday', 'Black',
             'Dinner', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud',
-            'Jupiter', 'Persistence', 'Pop', 'Hirst', 'Famil', 'king', 'Scream', 'Iris',
+            'Jupiter', 'Persistence', 'Pop', 'Hirst', 'Famil', 'queen', 'Scream', 'Iris',
             'Ansel', 'Maplethorpe', 'Mehretu', 'Peyton', 'Boticelli', 'Saturn', 'Goya'
         ]
     }
@@ -126,7 +126,7 @@ export default class BrowseArt extends Component {
                     <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
                 </ LikeButtons>
                 <Button basic color='black' onClick={this.callToggle}>
-                    View Your Artwork
+                    View Your Gallery
                 </Button>
             </BrowseContainer>
         )

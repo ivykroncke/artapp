@@ -6,7 +6,6 @@ import { HomeBackground } from './SharedComponents'
 
 
 const SiteTitle = styled.h1`
-  position: 25%;
   color: white;
   font-size: 5rem;
   font-family: 'Roboto';
@@ -19,8 +18,7 @@ const StyledLink = styled(Link)`
   font-family: 'Montserrat';
   text-decoration: none;
   color: white;
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+  padding: 1rem 2rem 2rem  2rem;
   :hover {
     color: lightgray;
   }

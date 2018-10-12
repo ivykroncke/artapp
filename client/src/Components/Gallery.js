@@ -20,7 +20,7 @@ export default class Gallery extends Component {
           <Image src={artwork.img} alt='artwork' />
           <InfoContainer>
             <GalleryTitle>{artwork.title}</GalleryTitle>
-            <GalleryLink href={`${artwork.link}`}>More Info<Icon name='chevron circle right' /></GalleryLink>
+            <GalleryLink href={`${artwork.link}`}><Icon name='chevron circle right' /></GalleryLink>
           </ InfoContainer>
         </ Grid.Column>
       )
@@ -29,7 +29,8 @@ export default class Gallery extends Component {
     return (
       <div>
         <GalleryDiv>
-          <Artist>Gallery</Artist>
+          <GalleryTitle>My Gallery</ GalleryTitle>
+          <GalleryLink>Click Arrows for More Information</GalleryLink>
           <SpaceDiv />
           <Grid verticalAlign='middle' relaxed='very' columns={3} centered >
             <Grid.Row>{artworksList}</Grid.Row>
