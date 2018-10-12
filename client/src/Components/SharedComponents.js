@@ -106,11 +106,6 @@ export const GalleryDiv = styled.div `
     margin: 3vh 10vw;
 `
 
-export const GridImage = styled.img`
-  max-width: 25vw;
-  padding: 3vw 3vh;
-`
-
 export const GalleryHeading = styled.div`
     width: 75%;
     padding: 20px 20px 10px 20px;
@@ -118,4 +113,25 @@ export const GalleryHeading = styled.div`
     font-size: 24px;
 `
 
+export const InfoContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+export const GalleryTitle = styled.div`
+    font-size: 1rem;
+    text-align: center; 
+`
+
+export const GalleryLink = styled.a`
+    text-align: left;
+    text-decoration: none;
+    font-size: .75rem;
+    color: inherit;
+    hover: {
+        color: lightgray;
+    }
+`
 

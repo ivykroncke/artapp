@@ -17,8 +17,8 @@ export default class BrowseArt extends Component {
             'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Night', 'Man', 'Flower',
             'DeKooning', 'Warhol', 'Titian', 'Manet', 'Fraggonnard', 'Bird', 'Field',
             'Blue', 'America', 'Star', 'Meninas', 'moiselle', 'Sunday', 'Night',
-            'Dinner', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud', 'Venus',
-            'Venus', 'Persistence', 'Pop', 'Hirst', 'Famil', 'Washington', 'Scream', 'Iris',
+            'Dinner', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud',
+            'Jupiter', 'Persistence', 'Pop', 'Hirst', 'Famil', 'king', 'Scream', 'Iris',
             'Ansel', 'Maplethorpe', 'Mehretu', 'Peyton', 'Boticelli', 'Saturn', 'Goya'
         ]
     }
@@ -125,7 +125,7 @@ export default class BrowseArt extends Component {
 
                 <div>
                     {this.state.artInfo.link ? (
-                        <a href={`${this.state.artInfo.link}`} target='_blank'> More Information </a>
+                        <a href={`${this.state.artInfo.link}`} target='_blank' rel="noopener noreferrer" > More Information </a>
                     ) : (
                             null
                         )}

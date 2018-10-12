@@ -7,6 +7,7 @@ const ArtworkSchema = new Schema({
     date: Number,
     medium: String,
     img: String,
+    link: String,
     liked: Boolean,
     unliked: Boolean
 })

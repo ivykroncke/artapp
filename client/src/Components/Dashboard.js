@@ -59,7 +59,8 @@ export default class Dashboard extends Component {
           ) : (
               <div>
                 <Gallery
-                  artworks={this.state.artworks} />
+                  artworks={this.state.artworks} 
+                  getUserName={this.getUserName}/>
                 <Button basic color='black' onClick={this.toggleBrowseOrGallery}>
                   Back To Browse
                 </Button>
