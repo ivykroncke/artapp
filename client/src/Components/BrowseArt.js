@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 
 import { StyledImage } from './SharedComponents'
 import { TopInfo } from './SharedComponents'
 import { Artist } from './SharedComponents'
 import { LikeButtons } from './SharedComponents'
 import { LikeOrSkip } from './SharedComponents'
-
 import { Icon } from 'semantic-ui-react'
 
 
@@ -16,11 +14,11 @@ export default class BrowseArt extends Component {
     state = {
         artInfo: {},
         searchArray: [
-            'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Night', 'Man', 'Floral',
+            'Madonna', 'Still Life', 'Guernica', 'Landscape', 'Night', 'Man', 'Flower',
             'DeKooning', 'Warhol', 'Titian', 'Manet', 'Fraggonnard', 'Bird', 'Field',
-            'Blue', 'America', 'Starry', 'Meninas', 'Demoiselles', 'Sunday', 'Night',
-            'Cafe', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud', 'Venus',
-            'Venus', 'Peristence', 'Pop', 'Hirst', 'Ermine', 'Washington', 'Scream', 'Iris',
+            'Blue', 'America', 'Star', 'Meninas', 'moiselle', 'Sunday', 'Night',
+            'Dinner', 'Wave', 'Olympia', 'Kiss', 'Luncheon', 'Saville', 'Freud', 'Venus',
+            'Venus', 'Persistence', 'Pop', 'Hirst', 'Famil', 'Washington', 'Scream', 'Iris',
             'Ansel', 'Maplethorpe', 'Mehretu', 'Peyton', 'Boticelli', 'Saturn', 'Goya'
         ]
     }
@@ -48,12 +46,13 @@ export default class BrowseArt extends Component {
             return Math.floor(Math.random() * Math.floor(max))
         }
         const i = getRandomInteger(arrayLength)
-
+        console.log(searchArray[i])
         const url = `https://api.artsy.net/api/search?q=${searchArray[i]}`
         axios.defaults.headers['X-XAPP-Token'] = token
         axios.defaults.headers['accept'] = "application/vnd.artsy-v2+json"
         const response = await axios.get(url)
         this.artsyToState(response.data._embedded.results[0])
+        console.log(response.data._embedded.results[0])
 
         searchArray = [...this.state.searchArray]
         searchArray.splice(i, 1)
@@ -61,15 +60,31 @@ export default class BrowseArt extends Component {
     }
 
     artsyToState = (response) => {
+        if (!response) {
+            this.goToArtsyApi()
+        }
         const artInfo = response
         console.log(artInfo)
+        let img = ''
+        let link = ''
+        if (artInfo._links.thumbnail) {
+            img = artInfo._links.thumbnail.href
+        } else {
+            img = 'this was null'
+        }
+        if (artInfo._links.permalink) {
+            link = artInfo._links.permalink.href
+        } else {
+            link = 'this was null'
+        }
+        
         let newInfo = {
-            title: artInfo.title,
-            medium: artInfo.medium,
-            description: artInfo.description,
-            date: artInfo.date,
-            img: artInfo._links.thumbnail.href,
-            link: artInfo._links.permalink.href
+            title: artInfo.title || 'default art title',
+            medium: artInfo.medium || 'this was null',
+            description: artInfo.description || 'this was null',
+            date: artInfo.date || 'this was null',
+            img,
+            link  
         }
         this.setState({ artInfo: newInfo })
     }
@@ -94,7 +109,6 @@ export default class BrowseArt extends Component {
         await this.goToArtsyApi(token)
     }
 
-
     render() {
         return (
             <div>
@@ -108,6 +122,7 @@ export default class BrowseArt extends Component {
                     <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large' /></LikeOrSkip>
                     <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
                 </ LikeButtons>
+
                 <div>
                     {this.state.artInfo.link ? (
                         <a href={`${this.state.artInfo.link}`} target='_blank'> More Information </a>
@@ -115,6 +130,7 @@ export default class BrowseArt extends Component {
                             null
                         )}
                 </div>
+
             </div>
         )
     }

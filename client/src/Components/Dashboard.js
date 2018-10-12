@@ -25,7 +25,7 @@ export default class Dashboard extends Component {
       userId: response.data._id,
       firstName: response.data.firstName,
       lastName: response.data.lastName,
-      artworks: response.data.artworks
+      artworks: response.data.artworks,
     })
   }
 
@@ -50,10 +50,7 @@ export default class Dashboard extends Component {
           {this.state.browseOrGallery ? (
             <div>
               <BrowseArt
-                username={this.state.username}
                 userId={this.state.userId}
-                firstName={this.state.firstName}
-                lastName={this.state.lastName}
                 artworks={this.state.artworks} />
               <Button basic color='black' onClick={this.toggleBrowseOrGallery}>
                 View Your Artwork
@@ -62,12 +59,7 @@ export default class Dashboard extends Component {
           ) : (
               <div>
                 <Gallery
-                  username={this.state.username}
-                  userId={this.state.userId}
-                  firstName={this.state.firstName}
-                  lastName={this.state.lastName}
-                  artworks={this.state.artworks}
-                  toggleBrowseOrGallery={this.state.browseOrGallery} />
+                  artworks={this.state.artworks} />
                 <Button basic color='black' onClick={this.toggleBrowseOrGallery}>
                   Back To Browse
                 </Button>
