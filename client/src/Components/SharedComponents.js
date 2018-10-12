@@ -65,6 +65,10 @@ export const StyledImage = styled.img`
     }
 `
 
+export const BrowseContainer = styled.div`
+    text-align: center;
+`
+
 //Top Info Bar for BrowseArt
 export const TopInfo = styled.div`
     width: 100%;
@@ -76,7 +80,7 @@ export const Artist = styled.div`
     font-family: Montserrat;
     font-size: 1.75rem;
     margin: 1vh 1vw .5vh 1vw;
-    padding: 1rem;
+    padding: 5vh;
 `
 
 export const Title = styled.div`
@@ -92,7 +96,7 @@ export const LikeButtons = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 1.25rem;
+    padding: 3rem 5rem;
 `
 
 export const LikeOrSkip = styled.div`

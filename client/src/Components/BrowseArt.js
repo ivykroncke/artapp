@@ -6,6 +6,7 @@ import { TopInfo } from './SharedComponents'
 import { Artist } from './SharedComponents'
 import { LikeButtons } from './SharedComponents'
 import { LikeOrSkip } from './SharedComponents'
+import { BrowseContainer } from './SharedComponents'
 import { Icon, Button } from 'semantic-ui-react'
 
 
@@ -115,22 +116,19 @@ export default class BrowseArt extends Component {
 
     render() {
         return (
-            <div>
+            <BrowseContainer>
                 <TopInfo>
                     <Artist>{this.state.artInfo.title}</Artist>
                 </TopInfo>
-
                 <StyledImage src={this.state.artInfo.img} alt={this.state.artInfo.title} />
-
                 <LikeButtons >
                     <LikeOrSkip onClick={this.saveLike}><Icon name='thumbs up' size='large' /></LikeOrSkip>
                     <LikeOrSkip onClick={this.saveUnLike}><Icon name='thumbs down' size='large' /></LikeOrSkip>
                 </ LikeButtons>
-
                 <Button basic color='black' onClick={this.callToggle}>
                     View Your Artwork
                 </Button>
-            </div>
+            </BrowseContainer>
         )
     }
 }
